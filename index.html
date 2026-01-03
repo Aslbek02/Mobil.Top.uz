@@ -1,0 +1,2611 @@
+<!DOCTYPE html>
+<html lang="uz" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MobilTop.UZ - 1000+ Telefonlar va Aksesuarlar | Rasmiy Do'kon</title>
+    <meta name="description" content="O'zbekistondagi eng keng mobil telefon assortimenti. 1000+ telefon modellari, 50+ brendlar. Rasmiy kafolat, tez yetkazib berish. Samsung, iPhone, Xiaomi, Realme, Vivo, Oppo.">
+    <meta name="keywords" content="telefon, smartphone, mobil telefon, Samsung, iPhone, Xiaomi, O'zbekiston, Toshkent, sotib olish, narx">
+    
+    <!-- PWA Manifest -->
+    <!-- index.html va profile.html da -->
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#4a6bff">
+
+<!-- iOS uchun qo'shimcha -->
+<link rel="apple-touch-icon" href="/icons/icon-192x192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="MobilTop">
+    
+    <!-- Open Graph for Social Media -->
+    <meta property="og:title" content="MobilTop.UZ - 1000+ Telefonlar">
+    <meta property="og:description" content="O'zbekistondagi eng keng mobil telefon assortimenti">
+    <meta property="og:image" content="photo_2025-12-29_11-55-11.jpg">
+    <meta property="og:image" content="https://mobiltop.uz/photo_2025-12-29_11-55-11.jpg">
+    <meta property="og:url" content="https://mobiltop.uz">
+    <meta property="og:type" content="website">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Image Lazy Loading -->
+    <script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+    
+    <style>
+        :root {
+            --primary: #4a6bff;
+            --secondary: #6a11cb;
+            --accent: #ffde59;
+            --success: #00b894;
+            --danger: #ff4757;
+            --warning: #ffa502;
+            --dark: #1a1f3a;
+            --light: #f8f9fa;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e6f0ff 100%);
+            color: #333;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            padding-bottom: 220px;
+        }
+
+        /* === PERFORMANCE MODE === */
+        .performance-mode .carousel-video,
+        .performance-mode .background-video {
+            display: none !important;
+        }
+        
+        .performance-mode img {
+            transform: none !important;
+            animation: none !important;
+        }
+
+        /* === LAZY LOADING === */
+        .lazy-load {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        .lazy-loaded {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* === LIVE CHAT === */
+        #liveChatWidget {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            z-index: 9999;
+        }
+        
+        .chat-toggle {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transition: var(--transition);
+        }
+        
+        .chat-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        .chat-window {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            display: none;
+            overflow: hidden;
+        }
+        
+        .chat-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .chat-body {
+            padding: 15px;
+            height: 380px;
+            overflow-y: auto;
+        }
+        
+        .chat-input {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 10px;
+        }
+
+        /* === SMS NOTIFICATION === */
+        .sms-notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--success);
+            display: none;
+            z-index: 9998;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+
+        /* === MULTI LANGUAGE === */
+        .language-switcher {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            z-index: 999;
+        }
+        
+        .lang-btn {
+            background: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .lang-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .lang-dropdown {
+            display: none;
+            position: absolute;
+            top: 40px;
+            right: 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            min-width: 150px;
+        }
+        
+        .lang-option {
+            padding: 10px 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+        
+        .lang-option:hover {
+            background: var(--light);
+        }
+
+        /* === PAYMENT METHODS === */
+        .payment-methods {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .payment-method {
+            background: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .payment-method:hover {
+            border-color: var(--primary);
+        }
+        
+        .payment-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .payment-form {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        /* === QUICK ORDER (FIXED) === */
+        .quick-order-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: linear-gradient(135deg, var(--success), #00cec9);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .quick-order-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 184, 148, 0.3);
+        }
+
+        /* === COOKIE CONSENT === */
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--dark);
+            color: white;
+            padding: 20px;
+            display: none;
+            z-index: 10001;
+        }
+
+        /* === LOADING SKELETON === */
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            border-radius: 10px;
+        }
+        
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* === HEADER IMPROVEMENTS === */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(106, 17, 203, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo:hover {
+            color: var(--accent);
+        }
+
+        .logo i {
+            color: var(--accent);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 30px;
+        }
+        
+        .search-container {
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 12px 20px 12px 45px;
+            border: none;
+            border-radius: 30px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            font-size: 16px;
+        }
+        
+        .search-input::placeholder {
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+        }
+        
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            display: none;
+            z-index: 1000;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .cart-icon {
+            position: relative;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--danger);
+            color: white;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 50%;
+        }
+
+        /* === CATEGORY NAVIGATION (FIXED) === */
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 20px;
+            background: white;
+            margin: 20px 0;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 80px;
+            z-index: 999;
+        }
+
+        .nav-category {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, var(--light), #ffffff);
+            border: 2px solid transparent;
+            border-radius: 30px;
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .nav-category.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-color: var(--accent);
+        }
+
+        .nav-category.active i {
+            color: var(--accent);
+        }
+
+        .nav-category:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(74, 107, 255, 0.2);
+        }
+
+        .nav-category i {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        /* === PRODUCTS GRID === */
+        #main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        #main-content .section {
+            margin: 40px 0;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            min-height: 500px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        /* === PRODUCT CARD ENHANCEMENTS === */
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #eee;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(74, 107, 255, 0.15);
+            border-color: var(--primary);
+        }
+
+        .product-image-container {
+            position: relative;
+            height: 220px;
+            margin-bottom: 20px;
+        }
+        
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8f9ff, #eef2ff);
+            border-radius: 10px;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+        
+        .product-3d-view {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-quick-actions {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .product-card:hover .product-quick-actions {
+            opacity: 1;
+        }
+        
+        .quick-action-btn {
+            width: 36px;
+            height: 36px;
+            background: white;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .quick-action-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .product-price {
+            margin: 15px 0;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--dark);
+        }
+
+        .product-card .old-price {
+            font-size: 0.9rem;
+            color: #999;
+            text-decoration: line-through;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .buy-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: auto;
+        }
+
+        .buy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(74, 107, 255, 0.3);
+        }
+
+        /* === FEATURED BRANDS CAROUSEL === */
+        .brands-carousel {
+            position: relative;
+            margin: 50px 0;
+            overflow: hidden;
+        }
+        
+        .brands-track {
+            display: flex;
+            animation: scrollBrands 30s linear infinite;
+            gap: 30px;
+        }
+        
+        @keyframes scrollBrands {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .brand-item {
+            min-width: 200px;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .brand-item:hover {
+            transform: translateY(-5px);
+        }
+
+        /* === COUNTDOWN TIMER === */
+        .countdown-timer {
+            background: linear-gradient(135deg, var(--danger), #ff3838);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .timer-numbers {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .timer-unit {
+            background: rgba(255,255,255,0.2);
+            padding: 10px;
+            border-radius: 8px;
+            min-width: 60px;
+        }
+
+        /* === STOCK ALERT === */
+        .stock-alert {
+            background: linear-gradient(135deg, var(--warning), #ff7f00);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            margin: 10px 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* === INSTALL APP BANNER === */
+        .install-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 15px 20px;
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+            z-index: 9990;
+        }
+        
+        .app-features {
+            display: flex;
+            gap: 20px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .app-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* === NEWSLETTER SIGNUP === */
+        .newsletter-section {
+            background: linear-gradient(135deg, var(--dark), #2d3748);
+            color: white;
+            padding: 60px 20px;
+            margin: 50px 0;
+            border-radius: 25px;
+            text-align: center;
+        }
+        
+        .newsletter-form {
+            max-width: 500px;
+            margin: 30px auto;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+        }
+        
+        .newsletter-btn {
+            background: var(--accent);
+            color: var(--dark);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .newsletter-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* === SOCIAL PROOF === */
+        .social-proof {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 50px 0;
+        }
+        
+        .proof-item {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+        
+        .proof-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        /* === PRODUCT TOUR === */
+        .product-tour {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 10002;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .tour-content {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 600px;
+            text-align: center;
+        }
+        
+        .tour-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        /* === FOOTER (FIXED) === */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 20px 30px;
+            margin-top: 50px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        /* Payment Systems in Footer */
+        .payment-systems {
+            text-align: center;
+            margin: 40px 0;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .payment-systems h4 {
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .payment-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .payment-icons img {
+            height: 40px;
+            filter: brightness(0) invert(1);
+            transition: var(--transition);
+        }
+
+        .payment-icons img:hover {
+            filter: brightness(0) invert(0.8);
+        }
+
+        /* Delivery Info */
+        .delivery-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .info-box h4 {
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .info-box p {
+            color: #cbd5e0;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        /* === RESPONSIVE DESIGN === */
+        @media (max-width: 1200px) {
+            .header-content {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            
+            .search-bar {
+                order: 3;
+                max-width: 100%;
+                margin: 15px 0 0 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            .user-actions {
+                gap: 15px;
+            }
+            
+            .chat-window {
+                width: 100%;
+                height: 70vh;
+                right: -20px;
+                bottom: 80px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .payment-methods {
+                justify-content: center;
+            }
+            
+            .nav-container {
+                top: 70px;
+                padding: 15px;
+                gap: 10px;
+            }
+            
+            .nav-category {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .language-switcher {
+                top: 100px;
+            }
+            
+            .quick-order-btn {
+                bottom: 20px;
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+            
+            .install-banner {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .nav-container {
+                justify-content: flex-start;
+                overflow-x: auto;
+                white-space: nowrap;
+                padding-bottom: 15px;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                gap: 15px;
+            }
+            
+            #main-content .section {
+                padding: 20px;
+                margin: 20px 0;
+            }
+        }
+
+        /* === PRINT STYLES === */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            
+            .product-card {
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+            
+            footer {
+                position: relative;
+            }
+        }
+
+        /* === DARK MODE SUPPORT === */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: var(--dark);
+                color: #f0f0f0;
+            }
+            
+            .product-card,
+            .brand-item,
+            .proof-item {
+                background: #2d3748;
+                color: #f0f0f0;
+            }
+            
+            .search-input {
+                background: rgba(255,255,255,0.1);
+            }
+            
+            .nav-category {
+                background: #2d3748;
+                color: #f0f0f0;
+            }
+        }
+
+        /* === ACCESSIBILITY === */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+        
+        :focus {
+            outline: 3px solid var(--accent);
+            outline-offset: 2px;
+        }
+        
+        .skip-to-content {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
+            color: white;
+            padding: 10px;
+            z-index: 1001;
+            text-decoration: none;
+        }
+        
+        .skip-to-content:focus {
+            top: 0;
+        }
+
+        /* === LOADING INDICATOR === */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* === CATEGORY INDICATOR === */
+        .category-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--dark);
+        }
+
+        .category-title h2 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .category-count {
+            color: #666;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Skip to Content for Accessibility -->
+    <a href="#main-content" class="skip-to-content">Asosiy kontentga o'tish</a>
+
+    <!-- SMS Notification -->
+    <div class="sms-notification" id="smsNotification">
+        <div id="smsMessage"></div>
+    </div>
+
+    <!-- Performance Mode Detector -->
+    <div id="performanceAlert" style="display: none; position: fixed; top: 10px; right: 10px; background: var(--warning); color: white; padding: 10px; border-radius: 5px; z-index: 10003;">
+        ⚡ Performance Mode Faollashtirildi
+    </div>
+
+    <!-- Language Switcher -->
+    <div class="language-switcher no-print">
+        <button class="lang-btn" onclick="toggleLanguageDropdown()">
+            <i class="fas fa-globe"></i>
+            <span id="currentLang">UZ</span>
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="lang-dropdown" id="langDropdown">
+            <div class="lang-option" onclick="changeLanguage('uz')">
+                <span>🇺🇿</span> O'zbekcha
+            </div>
+            <div class="lang-option" onclick="changeLanguage('ru')">
+                <span>🇷🇺</span> Русский
+            </div>
+            <div class="lang-option" onclick="changeLanguage('en')">
+                <span>🇺🇸</span> English
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Order Button (FIXED POSITION) -->
+    <button class="quick-order-btn no-print" onclick="openQuickOrder()">
+        <i class="fas fa-bolt"></i>
+        <span>Tezkor Buyurtma</span>
+    </button>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="image/photo_2025-12-29_11-55-11.jpg" class="logo">
+                <i class="fas fa-mobile-alt"></i>
+                <span>MobilTop.UZ</span>
+            </a>
+            
+            <div class="search-bar">
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" 
+                           class="search-input" 
+                           placeholder="Telefon nomi yoki modelini qidiring..."
+                           oninput="handleSearch(this.value)"
+                           aria-label="Qidiruv">
+                    <div class="search-results" id="searchResults"></div>
+                </div>
+            </div>
+            
+            <div class="user-actions">
+                <a href="sevimlilar.html" class="cart-icon" aria-label="Istaklar ro'yxati">
+                    <i class="fas fa-heart"></i>
+                    <span class="cart-count" id="wishlistCount">0</span>
+                </a>
+                <a href="/cart.html" class="cart-icon" aria-label="Savat">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+                <a href="/profile.html" class="cart-icon" aria-label="Shaxsiy kabinet">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation with Categories -->
+    <nav class="no-print">
+        <div class="nav-container">
+            <a href="#samsung" class="nav-category active" onclick="showCategory('samsung')" data-category="samsung">
+                <i class="fab fa-samsung"></i>Samsung
+            </a>
+            <a href="#iphone" class="nav-category" onclick="showCategory('iphone')" data-category="iphone">
+                <i class="fab fa-apple"></i>iPhone
+            </a>
+            <a href="#xiaomi" class="nav-category" onclick="showCategory('xiaomi')" data-category="xiaomi">
+                <i class="fas fa-bolt"></i>Xiaomi
+            </a>
+            <a href="#realme" class="nav-category" onclick="showCategory('realme')" data-category="realme">
+                <i class="fas fa-rocket"></i>Realme
+            </a>
+            <a href="#vivo" class="nav-category" onclick="showCategory('vivo')" data-category="vivo">
+                <i class="fas fa-music"></i>Vivo
+            </a>
+            <a href="#oppo" class="nav-category" onclick="showCategory('oppo')" data-category="oppo">
+                <i class="fas fa-video"></i>Oppo
+            </a>
+            <a href="#honor" class="nav-category" onclick="showCategory('honor')" data-category="honor">
+                <i class="fas fa-camera"></i>Honor
+            </a>
+            <a href="#oneplus" class="nav-category" onclick="showCategory('oneplus')" data-category="oneplus">
+                <i class="fas fa-infinity"></i>OnePlus
+            </a>
+            <a href="#aksesuarlar" class="nav-category" onclick="showCategory('accessories')" data-category="accessories">
+                <i class="fas fa-headphones"></i>Aksesuarlar
+            </a>
+        </div>
+    </nav>
+
+    <!-- Flash Sale Countdown -->
+    <div class="countdown-timer no-print">
+        <h3>⚡ Flash Sale - Chegirma 50% gacha!</h3>
+        <div class="timer-numbers">
+            <div class="timer-unit">
+                <span id="hours">00</span>
+                <div style="font-size: 12px;">Soat</div>
+            </div>
+            <div class="timer-unit">
+                <span id="minutes">00</span>
+                <div style="font-size: 12px;">Minut</div>
+            </div>
+            <div class="timer-unit">
+                <span id="seconds">00</span>
+                <div style="font-size: 12px;">Soniya</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Category Title -->
+        <div class="category-title">
+            <h2 id="categoryName">Samsung Telefonlari</h2>
+            <div class="category-count" id="productCount">12 ta mahsulot</div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="section" id="productsSection">
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here -->
+            </div>
+        </div>
+
+        <!-- Featured Brands Carousel -->
+        <div class="section no-print">
+            <h2>Tanlangan Brendlar</h2>
+            <div class="brands-carousel">
+                <div class="brands-track">
+                    <!-- Brands will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Social Proof Section -->
+        <div class="section">
+            <h2>Mijozlarimiz Ishonchi</h2>
+            <div class="social-proof">
+                <div class="proof-item">
+                    <div class="proof-number">10,000+</div>
+                    <p>Mamnun mijozlar</p>
+                </div>
+                <div class="proof-item">
+                    <div class="proof-number">99%</div>
+                    <p>Mijozlar qoniqishi</p>
+                </div>
+                <div class="proof-item">
+                    <div class="proof-number">24/7</div>
+                    <p>Qo'llab-quvvatlash</p>
+                </div>
+                <div class="proof-item">
+                    <div class="proof-number">30</div>
+                    <p>Kunlik kafolat</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Newsletter Signup -->
+        <div class="newsletter-section no-print">
+            <h2>Yangiliklardan Xabardor Bo'ling</h2>
+            <p>Yangi kelgan telefonlar, maxsus chegirmalar va aksiyalar haqida birinchi bo'lib biling</p>
+            <div class="newsletter-form">
+                <input type="email" 
+                       class="newsletter-input" 
+                       placeholder="Email manzilingiz"
+                       aria-label="Email manzili"
+                       id="newsletterEmail">
+                <button class="newsletter-btn" onclick="subscribeNewsletter()">
+                    Obuna bo'lish
+                </button>
+            </div>
+            <p style="font-size: 14px; opacity: 0.8; margin-top: 10px;">
+                Obuna bo'lish orqali siz <a href="#" style="color: var(--accent);">Maxfiylik siyosati</a> ga rozilik bildirasiz
+            </p>
+        </div>
+    </main>
+
+    <!-- Footer (FIXED AT BOTTOM, OUTSIDE CONTENT) -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>MobilTop.UZ</h3>
+                <p style="color: #cbd5e0; margin-bottom: 20px;">
+                    O'zbekistondagi eng keng mobil telefon assortimenti. 1000+ telefon modellari, 50+ brendlar.
+                </p>
+                <div style="display: flex; gap: 15px; margin-top: 20px;">
+                    <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-telegram"></i></a>
+                    <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-facebook"></i></a>
+                    <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Foydali Havolalar</h3>
+                <ul class="footer-links">
+                    <li><a href="/about">Biz haqimizda</a></li>
+                    <li><a href="/contact">Aloqa</a></li>
+                    <li><a href="/delivery">Yetkazib berish</a></li>
+                    <li><a href="/warranty">Kafolat</a></li>
+                    <li><a href="/return">Qaytarish siyosati</a></li>
+                    <li><a href="/privacy">Maxfiylik siyosati</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Mijozlarga yordam</h3>
+                <ul class="footer-links">
+                    <li><a href="/faq">Ko'p so'raladigan savollar</a></li>
+                    <li><a href="/how-to-order">Qanday buyurtma berish mumkin</a></li>
+                    <li><a href="/installment">Bo'lib to'lash</a></li>
+                    <li><a href="/trade-in">Trade-in xizmati</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/reviews">Sharhlar</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Biz bilan bog'laning</h3>
+                <div style="color: #cbd5e0;">
+                    <p><i class="fas fa-phone"></i> +998 78 123 45 67</p>
+                    <p><i class="fas fa-phone"></i> +998 90 123 45 67</p>
+                    <p><i class="fas fa-envelope"></i> info@mobiltop.uz</p>
+                    <p><i class="fas fa-clock"></i> 9:00 - 21:00 (har kuni)</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Toshkent sh., Chorsu savdo markazi</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Systems -->
+        <div class="payment-systems">
+            <h4>Qabul qilinadigan to'lov tizimlari</h4>
+            <div class="payment-icons">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Uzcard_logo.svg/1200px-Uzcard_logo.svg.png" alt="Uzcard">
+                <img src="https://humocard.uz/img/logo.png" alt="HUMO">
+                <img src="https://click.uz/click/images/logo.svg" alt="Click">
+                <img src="https://payme.uz/assets/images/logo.svg" alt="Payme">
+                <img src="https://uzumbank.uz/assets/img/logo.png" alt="Uzumbank">
+            </div>
+        </div>
+
+        <!-- Delivery Info -->
+        <div class="delivery-info">
+            <div class="info-box">
+                <h4>🚚 Yetkazib berish</h4>
+                <p>Toshkent bo'ylab: 2 soat ichida</p>
+                <p>Viloyatlarga: 1-3 kun</p>
+                <p>Yetkazib berish: 50,000 so'm</p>
+                <p>Toshkent bo'ylab: Bepul (>1 mln)</p>
+            </div>
+            
+            <div class="info-box">
+                <h4>🏪 Do'konlarimiz</h4>
+                <p>Toshkent: Chorsu savdo markazi</p>
+                <p>Samarqand: Registon savdo markazi</p>
+                <p>Buxoro: Minorai Kalon</p>
+                <p>Andijon: Bobur savdo markazi</p>
+            </div>
+            
+            <div class="info-box">
+                <h4>📦 Qo'shimcha xizmatlar</h4>
+                <p>📱 O'rnatish xizmati</p>
+                <p>🛡️ Qo'shimcha kafolat</p>
+                <p>🎁 Sovg'a qadoqlash</p>
+                <p>💳 Kredit orqali xarid</p>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="copyright">
+            <p>© 2024 MobilTop.UZ - Barcha huquqlar himoyalangan</p>
+            <p style="margin-top: 10px; font-size: 12px;">MChJ "MobilTop" | STIR: 123456789 | Tel: +998 (78) 123-45-67</p>
+        </div>
+    </footer>
+
+    <!-- Live Chat Widget -->
+    <div id="liveChatWidget" class="no-print">
+        <button class="chat-toggle" onclick="toggleChat()" aria-label="Chatni ochish">
+            <i class="fas fa-comments"></i>
+        </button>
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <h4 style="margin: 0;">Online Yordam</h4>
+                <button onclick="toggleChat()" style="background: none; border: none; color: white; cursor: pointer;">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-body" id="chatBody">
+                <!-- Chat messages -->
+            </div>
+            <div class="chat-input">
+                <input type="text" 
+                       id="chatInput" 
+                       placeholder="Xabaringizni yozing..."
+                       style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 20px;"
+                       onkeypress="if(event.key === 'Enter') sendMessage()">
+                <button onclick="sendMessage()" style="background: var(--primary); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // ====================
+        // 1. PRODUCTS DATABASE
+        // ====================
+        const productsDatabase = {
+            samsung: [
+                {
+                    id: 'samsung-s24-ultra',
+                    name: 'Samsung Galaxy S24 Ultra',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-ultra.jpg',
+                    specs: '200MP • 12GB RAM • 512GB • Snapdragon 8 Gen 3',
+                    price: '12,499,000',
+                    oldPrice: '13,999,000',
+                    stock: 15,
+                    rating: 4.8,
+                    reviews: 124
+                },
+                {
+                    id: 'samsung-s23-ultra',
+                    name: 'Samsung Galaxy S23 Ultra',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s23-ultra.jpg',
+                    specs: '200MP • 8GB RAM • 256GB • Snapdragon 8 Gen 2',
+                    price: '10,999,000',
+                    oldPrice: '12,499,000',
+                    stock: 8,
+                    rating: 4.7,
+                    reviews: 89
+                },
+                {
+                    id: 'samsung-s23-fe',
+                    name: 'Samsung Galaxy S23 FE',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s23-fe.jpg',
+                    specs: '50MP • 8GB RAM • 256GB • Exynos 2200',
+                    price: '7,499,000',
+                    oldPrice: '8,299,000',
+                    stock: 22,
+                    rating: 4.3,
+                    reviews: 45
+                },
+                {
+                    id: 'samsung-z-fold5',
+                    name: 'Samsung Galaxy Z Fold5',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-fold5.jpg',
+                    specs: '7.6" Qatlamli • 12GB • 512GB • Snapdragon 8 Gen 2',
+                    price: '15,999,000',
+                    oldPrice: '17,999,000',
+                    stock: 5,
+                    rating: 4.9,
+                    reviews: 67
+                },
+                {
+                    id: 'samsung-z-flip5',
+                    name: 'Samsung Galaxy Z Flip5',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-flip5.jpg',
+                    specs: 'Katlanadigan • 8GB • 256GB • Snapdragon 8 Gen 2',
+                    price: '10,299,000',
+                    oldPrice: '11,499,000',
+                    stock: 12,
+                    rating: 4.6,
+                    reviews: 78
+                },
+                {
+                    id: 'samsung-a54',
+                    name: 'Samsung Galaxy A54',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a54-5g.jpg',
+                    specs: '50MP • 8GB RAM • 256GB • Exynos 1380',
+                    price: '4,999,000',
+                    oldPrice: '5,499,000',
+                    stock: 35,
+                    rating: 4.2,
+                    reviews: 112
+                },
+                {
+                    id: 'samsung-a34',
+                    name: 'Samsung Galaxy A34',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a34.jpg',
+                    specs: '48MP • 8GB RAM • 128GB • MediaTek Dimensity 1080',
+                    price: '3,799,000',
+                    oldPrice: '4,199,000',
+                    stock: 42,
+                    rating: 4.0,
+                    reviews: 56
+                },
+                {
+                    id: 'samsung-a15',
+                    name: 'Samsung Galaxy A15',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a15.jpg',
+                    specs: '50MP • 6GB RAM • 128GB • MediaTek Helio G99',
+                    price: '2,499,000',
+                    oldPrice: '2,899,000',
+                    stock: 58,
+                    rating: 3.9,
+                    reviews: 34
+                }
+            ],
+            
+            iphone: [
+                {
+                    id: 'iphone-15-pro-max',
+                    name: 'iPhone 15 Pro Max',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-pro-max.jpg',
+                    specs: '48MP • 8GB RAM • 1TB • A17 Pro',
+                    price: '15,999,000',
+                    oldPrice: '17,499,000',
+                    stock: 9,
+                    rating: 4.9,
+                    reviews: 156
+                },
+                {
+                    id: 'iphone-15-pro',
+                    name: 'iPhone 15 Pro',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-pro.jpg',
+                    specs: '48MP • 8GB RAM • 512GB • A17 Pro',
+                    price: '13,999,000',
+                    oldPrice: '15,299,000',
+                    stock: 14,
+                    rating: 4.8,
+                    reviews: 98
+                },
+                {
+                    id: 'iphone-15',
+                    name: 'iPhone 15',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15.jpg',
+                    specs: '48MP • 6GB RAM • 256GB • A16 Bionic',
+                    price: '10,499,000',
+                    oldPrice: '11,499,000',
+                    stock: 21,
+                    rating: 4.6,
+                    reviews: 76
+                },
+                {
+                    id: 'iphone-14-pro-max',
+                    name: 'iPhone 14 Pro Max',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14-pro-max.jpg',
+                    specs: '48MP • 6GB RAM • 512GB • A16 Bionic',
+                    price: '12,999,000',
+                    oldPrice: '14,499,000',
+                    stock: 7,
+                    rating: 4.7,
+                    reviews: 89
+                },
+                {
+                    id: 'iphone-14',
+                    name: 'iPhone 14',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14.jpg',
+                    specs: '12MP • 6GB RAM • 128GB • A15 Bionic',
+                    price: '8,999,000',
+                    oldPrice: '9,799,000',
+                    stock: 18,
+                    rating: 4.4,
+                    reviews: 54
+                },
+                {
+                    id: 'iphone-13',
+                    name: 'iPhone 13',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13.jpg',
+                    specs: '12MP • 4GB RAM • 256GB • A15 Bionic',
+                    price: '7,499,000',
+                    oldPrice: '8,299,000',
+                    stock: 25,
+                    rating: 4.3,
+                    reviews: 67
+                },
+                {
+                    id: 'iphone-se-2022',
+                    name: 'iPhone SE (2022)',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-se-2022.jpg',
+                    specs: '12MP • 4GB RAM • 128GB • A15 Bionic',
+                    price: '5,999,000',
+                    oldPrice: '6,499,000',
+                    stock: 32,
+                    rating: 4.1,
+                    reviews: 43
+                }
+            ],
+            
+            xiaomi: [
+                {
+                    id: 'xiaomi-14-pro',
+                    name: 'Xiaomi 14 Pro',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/xiaomi-14-pro.jpg',
+                    specs: '50MP • 12GB RAM • 512GB • Snapdragon 8 Gen 3',
+                    price: '9,999,000',
+                    oldPrice: '10,999,000',
+                    stock: 11,
+                    rating: 4.7,
+                    reviews: 78
+                },
+                {
+                    id: 'xiaomi-13-ultra',
+                    name: 'Xiaomi 13 Ultra',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/xiaomi-13-ultra.jpg',
+                    specs: '50MP • 12GB RAM • 512GB • Snapdragon 8 Gen 2',
+                    price: '8,999,000',
+                    oldPrice: '9,799,000',
+                    stock: 6,
+                    rating: 4.8,
+                    reviews: 65
+                },
+                {
+                    id: 'xiaomi-13t-pro',
+                    name: 'Xiaomi 13T Pro',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/xiaomi-13t-pro.jpg',
+                    specs: '50MP • 12GB RAM • 512GB • MediaTek Dimensity 9200+',
+                    price: '7,499,000',
+                    oldPrice: '8,199,000',
+                    stock: 19,
+                    rating: 4.5,
+                    reviews: 54
+                },
+                {
+                    id: 'xiaomi-redmi-note-13-pro',
+                    name: 'Xiaomi Redmi Note 13 Pro',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-13-pro.jpg',
+                    specs: '200MP • 8GB RAM • 256GB • Snapdragon 7s Gen 2',
+                    price: '4,299,000',
+                    oldPrice: '4,799,000',
+                    stock: 28,
+                    rating: 4.3,
+                    reviews: 89
+                },
+                {
+                    id: 'xiaomi-poco-x6-pro',
+                    name: 'Xiaomi Poco X6 Pro',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-x6-pro.jpg',
+                    specs: '64MP • 12GB RAM • 512GB • MediaTek Dimensity 8300 Ultra',
+                    price: '5,499,000',
+                    oldPrice: '5,999,000',
+                    stock: 16,
+                    rating: 4.4,
+                    reviews: 47
+                },
+                {
+                    id: 'xiaomi-redmi-12',
+                    name: 'Xiaomi Redmi 12',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-12.jpg',
+                    specs: '50MP • 8GB RAM • 256GB • MediaTek Helio G88',
+                    price: '2,499,000',
+                    oldPrice: '2,899,000',
+                    stock: 45,
+                    rating: 4.0,
+                    reviews: 76
+                }
+            ],
+            
+            realme: [
+                {
+                    id: 'realme-gt5-pro',
+                    name: 'Realme GT5 Pro',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/realme-gt5-pro.jpg',
+                    specs: '50MP • 12GB RAM • 1TB • Snapdragon 8 Gen 3',
+                    price: '8,499,000',
+                    oldPrice: '9,299,000',
+                    stock: 8,
+                    rating: 4.6,
+                    reviews: 45
+                },
+                {
+                    id: 'realme-gt-neo5',
+                    name: 'Realme GT Neo5',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/realme-gt-neo5.jpg',
+                    specs: '50MP • 16GB RAM • 1TB • Snapdragon 8+ Gen 1',
+                    price: '7,999,000',
+                    oldPrice: '8,499,000',
+                    stock: 12,
+                    rating: 4.5,
+                    reviews: 38
+                },
+                {
+                    id: 'realme-11-pro-plus',
+                    name: 'Realme 11 Pro+',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/realme-11-pro-plus.jpg',
+                    specs: '200MP • 12GB RAM • 512GB • MediaTek Dimensity 7050',
+                    price: '5,999,000',
+                    oldPrice: '6,499,000',
+                    stock: 21,
+                    rating: 4.3,
+                    reviews: 56
+                },
+                {
+                    id: 'realme-c55',
+                    name: 'Realme C55',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/realme-c55.jpg',
+                    specs: '64MP • 8GB RAM • 256GB • MediaTek Helio G88',
+                    price: '2,799,000',
+                    oldPrice: '3,199,000',
+                    stock: 37,
+                    rating: 4.1,
+                    reviews: 67
+                }
+            ],
+            
+            vivo: [
+                {
+                    id: 'vivo-x100-pro',
+                    name: 'Vivo X100 Pro',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/vivo-x100-pro.jpg',
+                    specs: '50MP • 16GB RAM • 1TB • MediaTek Dimensity 9300',
+                    price: '10,499,000',
+                    oldPrice: '11,499,000',
+                    stock: 7,
+                    rating: 4.8,
+                    reviews: 34
+                },
+                {
+                    id: 'vivo-v29',
+                    name: 'Vivo V29',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/vivo-v29.jpg',
+                    specs: '50MP • 12GB RAM • 256GB • Snapdragon 778G',
+                    price: '5,499,000',
+                    oldPrice: '5,999,000',
+                    stock: 18,
+                    rating: 4.4,
+                    reviews: 45
+                },
+                {
+                    id: 'vivo-y100',
+                    name: 'Vivo Y100',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/vivo-y100.jpg',
+                    specs: '50MP • 8GB RAM • 128GB • Snapdragon 695',
+                    price: '2,999,000',
+                    oldPrice: '3,299,000',
+                    stock: 29,
+                    rating: 4.0,
+                    reviews: 78
+                }
+            ],
+            
+            oppo: [
+                {
+                    id: 'oppo-find-x7-ultra',
+                    name: 'Oppo Find X7 Ultra',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/oppo-find-x7-ultra.jpg',
+                    specs: '50MP • 16GB RAM • 512GB • Snapdragon 8 Gen 3',
+                    price: '11,999,000',
+                    oldPrice: '12,999,000',
+                    stock: 5,
+                    rating: 4.7,
+                    reviews: 29
+                },
+                {
+                    id: 'oppo-reno11-pro',
+                    name: 'Oppo Reno11 Pro',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/oppo-reno11-pro.jpg',
+                    specs: '50MP • 12GB RAM • 512GB • MediaTek Dimensity 8200',
+                    price: '6,999,000',
+                    oldPrice: '7,499,000',
+                    stock: 15,
+                    rating: 4.5,
+                    reviews: 42
+                },
+                {
+                    id: 'oppo-a78',
+                    name: 'Oppo A78',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/oppo-a78.jpg',
+                    specs: '50MP • 8GB RAM • 128GB • Snapdragon 680',
+                    price: '2,799,000',
+                    oldPrice: '3,099,000',
+                    stock: 34,
+                    rating: 4.1,
+                    reviews: 56
+                }
+            ],
+            
+            honor: [
+                {
+                    id: 'honor-magic6-pro',
+                    name: 'Honor Magic6 Pro',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/honor-magic6-pro.jpg',
+                    specs: '50MP • 16GB RAM • 1TB • Snapdragon 8 Gen 3',
+                    price: '11,499,000',
+                    oldPrice: '12,499,000',
+                    stock: 6,
+                    rating: 4.8,
+                    reviews: 38
+                },
+                {
+                    id: 'honor-90',
+                    name: 'Honor 90',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/honor-90.jpg',
+                    specs: '200MP • 12GB RAM • 512GB • Snapdragon 7 Gen 1',
+                    price: '5,999,000',
+                    oldPrice: '6,499,000',
+                    stock: 19,
+                    rating: 4.4,
+                    reviews: 51
+                },
+                {
+                    id: 'honor-x9b',
+                    name: 'Honor X9b',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/honor-x9b.jpg',
+                    specs: '108MP • 8GB RAM • 256GB • Snapdragon 6 Gen 1',
+                    price: '3,999,000',
+                    oldPrice: '4,299,000',
+                    stock: 27,
+                    rating: 4.2,
+                    reviews: 67
+                }
+            ],
+            
+            oneplus: [
+                {
+                    id: 'oneplus-12',
+                    name: 'OnePlus 12',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/oneplus-12.jpg',
+                    specs: '50MP • 16GB RAM • 512GB • Snapdragon 8 Gen 3',
+                    price: '9,999,000',
+                    oldPrice: '10,999,000',
+                    stock: 9,
+                    rating: 4.8,
+                    reviews: 73
+                },
+                {
+                    id: 'oneplus-11',
+                    name: 'OnePlus 11',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/oneplus-11.jpg',
+                    specs: '50MP • 16GB RAM • 256GB • Snapdragon 8 Gen 2',
+                    price: '8,499,000',
+                    oldPrice: '9,199,000',
+                    stock: 14,
+                    rating: 4.7,
+                    reviews: 89
+                },
+                {
+                    id: 'oneplus-nord-3',
+                    name: 'OnePlus Nord 3',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/oneplus-nord-3.jpg',
+                    specs: '50MP • 16GB RAM • 256GB • MediaTek Dimensity 9000',
+                    price: '5,499,000',
+                    oldPrice: '5,999,000',
+                    stock: 22,
+                    rating: 4.5,
+                    reviews: 45
+                }
+            ],
+            
+            accessories: [
+                {
+                    id: 'airpods-pro-2',
+                    name: 'AirPods Pro 2',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/apple-airpods-pro-2.jpg',
+                    specs: 'Active Noise Cancellation • MagSafe • Spatial Audio',
+                    price: '2,499,000',
+                    oldPrice: '2,899,000',
+                    stock: 42,
+                    rating: 4.8,
+                    reviews: 156
+                },
+                {
+                    id: 'samsung-galaxy-buds2-pro',
+                    name: 'Samsung Galaxy Buds2 Pro',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-buds2-pro.jpg',
+                    specs: 'ANC • Hi-Fi Sound • Bixby Voice Wake Up',
+                    price: '1,899,000',
+                    oldPrice: '2,199,000',
+                    stock: 38,
+                    rating: 4.6,
+                    reviews: 98
+                },
+                {
+                    id: 'xiaomi-watch-s3',
+                    name: 'Xiaomi Watch S3',
+                    image: 'https://fdn2.gsmarena.com/vv/bigpic/xiaomi-watch-s3.jpg',
+                    specs: '1.43" AMOLED • GPS • 15 kun batareya',
+                    price: '1,299,000',
+                    oldPrice: '1,499,000',
+                    stock: 25,
+                    rating: 4.4,
+                    reviews: 67
+                },
+                {
+                    id: 'samsung-45w-charger',
+                    name: 'Samsung 45W Tez Zaryadlovchi',
+                    image: 'https://images.samsung.com/is/image/samsung/p6pim/uz/ep-ta845xbegru/gallery/uz-galaxy-45w-travel-adapter-ep-ta845xbegru-533879857',
+                    specs: 'Super Fast Charging 2.0 • PD 3.0 • PPS',
+                    price: '599,000',
+                    oldPrice: '699,000',
+                    stock: 56,
+                    rating: 4.3,
+                    reviews: 45
+                },
+                {
+                    id: 'iphone-magsafe-charger',
+                    name: 'Apple MagSafe Zaryadlovchi',
+                    image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MHXH3',
+                    specs: '15W Wireless Charging • Magnetic Alignment',
+                    price: '799,000',
+                    oldPrice: '899,000',
+                    stock: 31,
+                    rating: 4.5,
+                    reviews: 89
+                },
+                {
+                    id: 'spigen-case-s24',
+                    name: 'Spigen S24 Ultra Qop',
+                    image: 'https://m.media-amazon.com/images/I/71x-0Akb7FL._AC_SL1500_.jpg',
+                    specs: 'Armor qurilma • 4 ta qalin burchaklar • Transparent',
+                    price: '299,000',
+                    oldPrice: '349,000',
+                    stock: 78,
+                    rating: 4.7,
+                    reviews: 234
+                },
+                {
+                    id: 'anker-powerbank',
+                    name: 'Anker PowerCore 20,000mAh',
+                    image: 'https://m.media-amazon.com/images/I/61pJ7L-0aQL._AC_SL1500_.jpg',
+                    specs: '20,000mAh • 20W Tez Zaryadlash • 2 USB port',
+                    price: '699,000',
+                    oldPrice: '799,000',
+                    stock: 45,
+                    rating: 4.6,
+                    reviews: 167
+                },
+                {
+                    id: 'car-mount-wireless',
+                    name: 'Avtomobil Wireless Zaryadlovchi',
+                    image: 'https://m.media-amazon.com/images/I/71j+UwMpMJL._AC_SL1500_.jpg',
+                    specs: '15W Wireless • Avtomatik qisqich • 360° aylanish',
+                    price: '449,000',
+                    oldPrice: '499,000',
+                    stock: 33,
+                    rating: 4.4,
+                    reviews: 56
+                }
+            ]
+        };
+
+        // ====================
+        // 2. CATEGORY MANAGEMENT
+        // ====================
+        let currentCategory = 'samsung';
+        const categoryNames = {
+            samsung: { uz: 'Samsung Telefonlari', ru: 'Телефоны Samsung', en: 'Samsung Phones' },
+            iphone: { uz: 'iPhone Telefonlari', ru: 'Телефоны iPhone', en: 'iPhone Phones' },
+            xiaomi: { uz: 'Xiaomi Telefonlari', ru: 'Телефоны Xiaomi', en: 'Xiaomi Phones' },
+            realme: { uz: 'Realme Telefonlari', ru: 'Телефоны Realme', en: 'Realme Phones' },
+            vivo: { uz: 'Vivo Telefonlari', ru: 'Телефоны Vivo', en: 'Vivo Phones' },
+            oppo: { uz: 'Oppo Telefonlari', ru: 'Телефоны Oppo', en: 'Oppo Phones' },
+            honor: { uz: 'Honor Telefonlari', ru: 'Телефоны Honor', en: 'Honor Phones' },
+            oneplus: { uz: 'OnePlus Telefonlari', ru: 'Телефоны OnePlus', en: 'OnePlus Phones' },
+            accessories: { uz: 'Aksesuarlar', ru: 'Аксессуары', en: 'Accessories' }
+        };
+
+        function showCategory(category) {
+            // Update active category
+            document.querySelectorAll('.nav-category').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Update current category
+            currentCategory = category;
+            
+            // Update category title
+            updateCategoryTitle(category);
+            
+            // Load products for this category
+            loadProductsForCategory(category);
+            
+            // Scroll to products section
+            document.getElementById('productsSection').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function updateCategoryTitle(category) {
+            const titleElement = document.getElementById('categoryName');
+            const countElement = document.getElementById('productCount');
+            
+            if (categoryNames[category]) {
+                titleElement.textContent = categoryNames[category][currentLang];
+            }
+            
+            const productCount = productsDatabase[category]?.length || 0;
+            countElement.textContent = `${productCount} ta mahsulot`;
+        }
+
+        function loadProductsForCategory(category) {
+            const products = productsDatabase[category] || [];
+            const container = document.getElementById('productsGrid');
+            const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+            
+            if (products.length === 0) {
+                container.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 50px;">
+                        <i class="fas fa-box-open" style="font-size: 3rem; color: #ddd; margin-bottom: 20px;"></i>
+                        <h3 style="color: #666;">Bu kategoriyada mahsulotlar hozircha mavjud emas</h3>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = products.map(product => {
+                const isInWishlist = wishlist.includes(product.id);
+                const heartIcon = isInWishlist ? 'fas fa-heart' : 'far fa-heart';
+                const heartColor = isInWishlist ? 'style="color: #ff4757;"' : '';
+                const heartTitle = isInWishlist ? "Istaklar ro'yxatidan o'chirish" : "Istaklar ro'yxatiga qo'shish";
+                
+                return `
+                    <div class="product-card" data-id="${product.id}" data-category="${category}">
+                        <div class="product-quick-actions">
+                            <button class="quick-action-btn" onclick="addToWishlist(event, '${product.id}')" title="${heartTitle}">
+                                <i class="${heartIcon}" ${heartColor}></i>
+                            </button>
+                            <button class="quick-action-btn" onclick="compareProduct('${product.id}')" title="Taqqoslash">
+                                <i class="fas fa-balance-scale"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="product-image-container">
+                            <img src="${product.image}" 
+                                 alt="${product.name}" 
+                                 class="product-image lazy-load"
+                                 loading="lazy"
+                                 onerror="this.src='https://via.placeholder.com/300x300?text=Telefon+Rasmi'">
+                            <button class="product-3d-view" onclick="view3D('${product.id}')" title="3D ko'rish">
+                                <i class="fas fa-cube"></i>
+                            </button>
+                        </div>
+                        
+                        <h3 style="margin: 10px 0; min-height: 60px;">${product.name}</h3>
+                        <div class="product-specs" style="color: #666; font-size: 14px; margin-bottom: 15px; min-height: 40px;">${product.specs}</div>
+                        
+                        <div class="product-price">
+                            ${product.price} so'm
+                            ${product.oldPrice ? `<span class="old-price">${product.oldPrice} so'm</span>` : ''}
+                        </div>
+                        
+                        <div style="margin: 15px 0; display: flex; align-items: center; justify-content: space-between;">
+                            <div>
+                                ${product.stock > 10 ? 
+                                    '<span style="color: #00b894;"><i class="fas fa-check-circle"></i> Bor</span>' : 
+                                    product.stock > 0 ? 
+                                    '<span style="color: #ffa502;"><i class="fas fa-exclamation-triangle"></i> Kam qoldi</span>' :
+                                    '<span style="color: #ff4757;"><i class="fas fa-times-circle"></i> Tugadi</span>'
+                                }
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 5px; color: #ffa502;">
+                                <i class="fas fa-star"></i>
+                                <span>${product.rating}</span>
+                                <span style="color: #666;">(${product.reviews})</span>
+                            </div>
+                        </div>
+                        
+                        <button class="buy-btn" onclick="addToCart('${product.id}')">
+                            <i class="fas fa-shopping-cart"></i> Savatga qo'shish
+                        </button>
+                    </div>
+                `;
+            }).join('');
+            
+            // Initialize lazy loading for new images
+            if (window.lozad) {
+                const observer = lozad('.lazy-load');
+                observer.observe();
+            }
+        }
+
+        // ====================
+        // 3. WISHLIST SYSTEM (FIXED)
+        // ====================
+        function addToWishlist(event, productId) {
+            // Tugma bosilishini to'xtatish
+            event.stopPropagation();
+            event.preventDefault();
+            
+            // Wishlist ni olish
+            let wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+            
+            // Agar mahsulot allaqachon ro'yxatda bo'lsa, o'chirish
+            if (wishlist.includes(productId)) {
+                wishlist = wishlist.filter(id => id !== productId);
+                localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                
+                // Tugmani yangilash
+                const btn = event.currentTarget;
+                btn.innerHTML = '<i class="far fa-heart"></i>';
+                btn.title = "Istaklar ro'yxatiga qo'shish";
+                
+                showSMSNotification('Istaklar ro\'yxatidan o\'chirildi!');
+            } else {
+                // Aks holda ro'yxatga qo'shish
+                wishlist.push(productId);
+                localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                
+                // Tugmani yangilash
+                const btn = event.currentTarget;
+                btn.innerHTML = '<i class="fas fa-heart" style="color: #ff4757;"></i>';
+                btn.title = "Istaklar ro'yxatidan o'chirish";
+                
+                showSMSNotification('Istaklar ro\'yxatiga qo\'shildi!');
+            }
+            
+            // Wishlist sonini yangilash
+            updateWishlistCount();
+            
+            // Animatsiya
+            const btn = event.currentTarget;
+            btn.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                btn.style.transform = 'scale(1)';
+            }, 300);
+            
+            return false;
+        }
+        
+        function updateWishlistCount() {
+            const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+            const count = wishlist.length;
+            document.getElementById('wishlistCount').textContent = count;
+        }
+
+        // ====================
+        // 4. MULTI-LANGUAGE SYSTEM
+        // ====================
+        let currentLang = 'uz';
+        
+        function changeLanguage(lang) {
+            currentLang = lang;
+            document.getElementById('currentLang').textContent = lang.toUpperCase();
+            localStorage.setItem('preferredLanguage', lang);
+            
+            // Update category title
+            updateCategoryTitle(currentCategory);
+            
+            // Update all translatable elements
+            updatePageLanguage();
+            
+            toggleLanguageDropdown();
+        }
+        
+        function updatePageLanguage() {
+            // Update all elements with data-translate attribute
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.getAttribute('data-translate');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    el.textContent = translations[currentLang][key];
+                }
+            });
+        }
+        
+        function toggleLanguageDropdown() {
+            const dropdown = document.getElementById('langDropdown');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.language-switcher')) {
+                document.getElementById('langDropdown').style.display = 'none';
+            }
+        });
+
+        // ====================
+        // 5. CART SYSTEM
+        // ====================
+        let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        
+        function updateCartCount() {
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = count;
+        }
+        
+        function addToCart(productId) {
+            event.stopPropagation();
+            event.preventDefault();
+            
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({id: productId, quantity: 1, addedAt: new Date().toISOString()});
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            
+            // Show notification
+            showSMSNotification('Mahsulot savatga qo\'shildi!');
+            
+            // Add animation
+            const cartIcon = document.querySelector('.fa-shopping-cart').closest('.cart-icon');
+            cartIcon.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                cartIcon.style.transform = 'scale(1)';
+            }, 300);
+            
+            return false;
+        }
+
+        // ====================
+        // 6. QUICK ORDER SYSTEM (FIXED)
+        // ====================
+        function openQuickOrder() {
+            const phone = prompt('Telefon raqamingizni kiriting (masalan: 901234567):');
+            if (phone && phone.length >= 9) {
+                const product = prompt('Qaysi mahsulotni buyurtma bermoqchisiz?');
+                if (product) {
+                    // In real app, send to backend
+                    console.log('Quick order:', { phone, product });
+                    
+                    showSMSNotification('Tezkor buyurtmangiz qabul qilindi! Operator tez orada siz bilan bog\'lanadi.');
+                    
+                    // Save to localStorage for tracking
+                    const quickOrders = JSON.parse(localStorage.getItem('quickOrders') || '[]');
+                    quickOrders.push({
+                        phone,
+                        product,
+                        timestamp: new Date().toISOString(),
+                        status: 'pending'
+                    });
+                    localStorage.setItem('quickOrders', JSON.stringify(quickOrders));
+                }
+            } else {
+                alert('Iltimos, to\'g\'ri telefon raqam kiriting!');
+            }
+        }
+
+        // ====================
+        // 7. BRANDS CAROUSEL
+        // ====================
+        function loadBrandsCarousel() {
+            const brands = [
+                {name: 'Samsung', icon: 'fab fa-samsung', count: '150+', color: '#1428a0'},
+                {name: 'iPhone', icon: 'fab fa-apple', count: '80+', color: '#000000'},
+                {name: 'Xiaomi', icon: 'fas fa-bolt', count: '120+', color: '#ff6900'},
+                {name: 'Honor', icon: 'fas fa-camera', count: '90+', color: '#000000'},
+                {name: 'Realme', icon: 'fas fa-rocket', count: '70+', color: '#ff5e00'},
+                {name: 'Vivo', icon: 'fas fa-music', count: '60+', color: '#415fff'},
+                {name: 'Oppo', icon: 'fas fa-video', count: '65+', color: '#0088ff'},
+                {name: 'OnePlus', icon: 'fas fa-infinity', count: '40+', color: '#f5010c'},
+                {name: 'Nokia', icon: 'fas fa-mobile', count: '30+', color: '#124191'},
+                {name: 'Tecno', icon: 'fas fa-star', count: '50+', color: '#0066cc'}
+            ];
+            
+            const container = document.querySelector('.brands-track');
+            container.innerHTML = brands.map(brand => `
+                <div class="brand-item" onclick="showCategory('${brand.name.toLowerCase()}')" style="cursor: pointer;">
+                    <i class="${brand.icon}" style="font-size: 2.5rem; color: ${brand.color};"></i>
+                    <h4>${brand.name}</h4>
+                    <div style="color: var(--accent); font-weight: bold;">${brand.count} modellar</div>
+                </div>
+            `).join('');
+            
+            // Duplicate for seamless loop
+            container.innerHTML += container.innerHTML;
+        }
+
+        // ====================
+        // 8. OTHER FUNCTIONS
+        // ====================
+        function showSMSNotification(message) {
+            // Create notification if it doesn't exist
+            let notification = document.getElementById('smsNotification');
+            if (!notification) {
+                notification = document.createElement('div');
+                notification.className = 'sms-notification';
+                notification.id = 'smsNotification';
+                document.body.appendChild(notification);
+            }
+            
+            // Create message element if it doesn't exist
+            let messageElement = document.getElementById('smsMessage');
+            if (!messageElement) {
+                messageElement = document.createElement('div');
+                messageElement.id = 'smsMessage';
+                notification.appendChild(messageElement);
+            }
+            
+            messageElement.textContent = message;
+            notification.style.display = 'block';
+            
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 5000);
+        }
+        
+        function toggleChat() {
+            const chatWindow = document.getElementById('chatWindow');
+            chatWindow.style.display = chatWindow.style.display === 'block' ? 'none' : 'block';
+        }
+        
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (message) {
+                // Add user message
+                const chatBody = document.getElementById('chatBody');
+                chatBody.innerHTML += `
+                    <div style="text-align: right; margin-bottom: 10px;">
+                        <div style="background: #4a6bff; color: white; padding: 10px 15px; border-radius: 20px; display: inline-block; max-width: 80%;">
+                            ${message}
+                        </div>
+                    </div>
+                `;
+                input.value = '';
+                
+                // Auto reply
+                setTimeout(() => {
+                    chatBody.innerHTML += `
+                        <div style="text-align: left; margin-bottom: 10px;">
+                            <div style="background: #f0f0f0; color: #333; padding: 10px 15px; border-radius: 20px; display: inline-block; max-width: 80%;">
+                                Tushunarli, qo'shimcha ma'lumot bera olaman. Biroz kuting...
+                            </div>
+                        </div>
+                    `;
+                    chatBody.scrollTop = chatBody.scrollHeight;
+                }, 1000);
+                
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }
+        }
+
+        function startCountdown() {
+            const endTime = new Date();
+            endTime.setHours(endTime.getHours() + 24);
+            
+            function updateTimer() {
+                const now = new Date();
+                const diff = endTime - now;
+                
+                if (diff <= 0) {
+                    document.querySelector('.countdown-timer').innerHTML = '<h3>🎉 Flash Sale Tugadi!</h3>';
+                    return;
+                }
+                
+                const hours = Math.floor(diff / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            }
+            
+            updateTimer();
+            setInterval(updateTimer, 1000);
+        }
+
+        // ====================
+        // 9. INITIALIZATION
+        // ====================
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set default language
+            const preferredLanguage = localStorage.getItem('preferredLanguage') || 'uz';
+            changeLanguage(preferredLanguage);
+            
+            // Load initial products (Samsung by default)
+            loadProductsForCategory('samsung');
+            
+            // Initialize counters
+            updateCartCount();
+            updateWishlistCount();
+            
+            // Initialize other features
+            startCountdown();
+            loadBrandsCarousel();
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.search-container')) {
+                    document.getElementById('searchResults').style.display = 'none';
+                }
+            });
+            
+            // Keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                    e.preventDefault();
+                    document.querySelector('.search-input').focus();
+                }
+            });
+            
+            // PWA Service Worker
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registered');
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed:', err);
+                    });
+            }
+        });
+
+        // ====================
+        // 10. SEARCH FUNCTIONALITY
+        // ====================
+        let searchTimeout;
+        
+        function handleSearch(query) {
+            clearTimeout(searchTimeout);
+            
+            if (query.length < 2) {
+                document.getElementById('searchResults').style.display = 'none';
+                return;
+            }
+            
+            searchTimeout = setTimeout(() => {
+                const results = searchProducts(query);
+                displaySearchResults(results);
+            }, 300);
+        }
+        
+        function searchProducts(query) {
+            const allProducts = [];
+            Object.values(productsDatabase).forEach(categoryProducts => {
+                allProducts.push(...categoryProducts);
+            });
+            
+            return allProducts.filter(product => 
+                product.name.toLowerCase().includes(query.toLowerCase()) ||
+                product.specs.toLowerCase().includes(query.toLowerCase())
+            ).slice(0, 10); // Limit to 10 results
+        }
+        
+        function displaySearchResults(results) {
+            const container = document.getElementById('searchResults');
+            
+            if (results.length === 0) {
+                container.innerHTML = '<div style="padding: 20px; text-align: center; color: #666;">Natija topilmadi</div>';
+            } else {
+                container.innerHTML = results.map(product => `
+                    <div style="padding: 10px 15px; border-bottom: 1px solid #eee; cursor: pointer; display: flex; align-items: center; gap: 15px;"
+                         onclick="window.location.href='#products'">
+                        <img src="${product.image}" alt="${product.name}" 
+                             style="width: 50px; height: 50px; object-fit: contain; border-radius: 5px;">
+                        <div style="flex: 1;">
+                            <div style="font-weight: 500;">${product.name}</div>
+                            <div style="color: #666; font-size: 12px;">${product.specs}</div>
+                            <div style="color: #ff4757; font-weight: bold; margin-top: 5px;">${product.price} so'm</div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            
+            container.style.display = 'block';
+        }
+
+        // ====================
+        // 11. HELPER FUNCTIONS
+        // ====================
+        function view3D(productId) {
+            alert('3D ko\'rish rejimi tez orada ishga tushadi!');
+        }
+        
+        function compareProduct(productId) {
+            alert('Taqqoslash funksiyasi tez orada ishga tushadi!');
+        }
+        
+        function subscribeNewsletter() {
+            const email = document.getElementById('newsletterEmail').value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!emailRegex.test(email)) {
+                alert('Iltimos, to\'g\'ri email manzil kiriting!');
+                return;
+            }
+            
+            // Save to localStorage
+            const subscribers = JSON.parse(localStorage.getItem('newsletterSubscribers') || '[]');
+            subscribers.push({
+                email,
+                subscribedAt: new Date().toISOString(),
+                language: currentLang
+            });
+            localStorage.setItem('newsletterSubscribers', JSON.stringify(subscribers));
+            
+            // Clear input
+            document.getElementById('newsletterEmail').value = '';
+            
+            // Show success message
+            showSMSNotification('Yangiliklar byulleteniga obuna bo\'ldingiz! Rahmat.');
+        }
+
+        // Translations object (simplified version)
+        const translations = {
+            uz: {
+                search: "Qidirish...",
+                addToCart: "Savatga qo'shish",
+                buyNow: "Hoziroq sotib olish",
+                categories: "Kategoriyalar",
+                allProducts: "Barcha mahsulotlar"
+            },
+            ru: {
+                search: "Поиск...",
+                addToCart: "Добавить в корзину",
+                buyNow: "Купить сейчас",
+                categories: "Категории",
+                allProducts: "Все продукты"
+            },
+            en: {
+                search: "Search...",
+                addToCart: "Add to Cart",
+                buyNow: "Buy Now",
+                categories: "Categories",
+                allProducts: "All Products"
+            }
+        };
+
+        // Make sure the page loads correctly
+        window.onload = function() {
+            // Ensure footer is at bottom
+            const body = document.body;
+            const footer = document.querySelector('footer');
+            
+            function adjustFooter() {
+                const bodyHeight = body.offsetHeight;
+                const windowHeight = window.innerHeight;
+                
+                if (bodyHeight < windowHeight) {
+                    footer.style.position = 'absolute';
+                } else {
+                    footer.style.position = 'relative';
+                }
+            }
+            
+            adjustFooter();
+            window.addEventListener('resize', adjustFooter);
+        };
+        if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(registration => {
+        console.log('ServiceWorker registered: ', registration.scope);
+      })
+      .catch(error => {
+        console.log('ServiceWorker registration failed: ', error);
+      });
+  });
+}
+    </script>
+</body>
+</html>

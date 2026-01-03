@@ -1,0 +1,1921 @@
+<!DOCTYPE html>
+<html lang="uz" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savat | MobilTop.UZ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #4a6bff;
+            --secondary: #6a11cb;
+            --accent: #ffde59;
+            --success: #00b894;
+            --danger: #ff4757;
+            --warning: #ffa502;
+            --dark: #1a1f3a;
+            --light: #f8f9fa;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: #f5f7ff;
+            color: var(--dark);
+            min-height: 100vh;
+            position: relative;
+            padding-bottom: 100px;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 20px 0;
+            box-shadow: 0 5px 20px rgba(106, 17, 203, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+            padding: 5px 0;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .icon-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .icon-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--danger);
+            color: white;
+            font-size: 12px;
+            padding: 3px 7px;
+            border-radius: 50%;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        /* CART PAGE STYLES */
+        .page-header {
+            text-align: center;
+            margin: 50px 0 40px;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cart-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 992px) {
+            .cart-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Cart Items */
+        .cart-items {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .cart-items-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--light);
+        }
+
+        .cart-items-header h2 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .cart-item {
+            display: grid;
+            grid-template-columns: 120px 1fr auto;
+            gap: 20px;
+            padding: 25px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-image {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #f8f9ff, #eef2ff);
+            padding: 15px;
+        }
+
+        .item-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        .item-specs {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .item-price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .old-price {
+            font-size: 1rem;
+            color: #999;
+            text-decoration: line-through;
+            display: block;
+        }
+
+        .item-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--light);
+            padding: 8px 15px;
+            border-radius: 30px;
+        }
+
+        .qty-btn {
+            background: none;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--dark);
+            transition: var(--transition);
+        }
+
+        .qty-btn:hover {
+            background: #ddd;
+        }
+
+        .quantity {
+            font-weight: bold;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: var(--danger);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin-top: 10px;
+        }
+
+        .remove-item:hover {
+            background: rgba(255, 71, 87, 0.1);
+            color: #ff2e43;
+        }
+
+        .item-total {
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        .item-total .label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .item-total .amount {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--success);
+        }
+
+        /* Cart Summary */
+        .cart-summary {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .summary-title {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--dark);
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .summary-row.discount {
+            color: var(--success);
+            font-weight: 600;
+        }
+
+        .summary-row.total {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--dark);
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid var(--light);
+        }
+
+        .promo-section {
+            margin: 25px 0;
+            padding: 20px;
+            background: var(--light);
+            border-radius: 15px;
+        }
+
+        .promo-section h4 {
+            margin-bottom: 15px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .promo-input {
+            display: flex;
+            gap: 10px;
+        }
+
+        .promo-input input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .promo-input input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .promo-input button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .promo-input button:hover {
+            background: #3a5bff;
+            transform: translateY(-2px);
+        }
+
+        #promoMessage {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            padding: 8px 12px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .promo-success {
+            background: rgba(0, 184, 148, 0.1);
+            color: var(--success);
+            border: 1px solid rgba(0, 184, 148, 0.2);
+        }
+
+        .promo-error {
+            background: rgba(255, 71, 87, 0.1);
+            color: var(--danger);
+            border: 1px solid rgba(255, 71, 87, 0.2);
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--success), #00cec9);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            transition: var(--transition);
+        }
+
+        .checkout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 184, 148, 0.3);
+        }
+
+        .continue-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--light);
+            color: var(--dark);
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .continue-btn:hover {
+            background: #eaeaea;
+            transform: translateY(-2px);
+        }
+
+        .security-badge {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff3cd;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .security-badge i {
+            color: #856404;
+            margin-right: 8px;
+        }
+
+        .security-badge span {
+            color: #856404;
+            font-size: 0.9rem;
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 100px 20px;
+            grid-column: 1 / -1;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .empty-icon {
+            font-size: 5rem;
+            color: #ddd;
+            margin-bottom: 30px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .empty-state h2 {
+            font-size: 2rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .empty-state p {
+            color: #999;
+            margin-bottom: 30px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .btn-large {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .btn-large:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(74, 107, 255, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 30px;
+            margin-top: 80px;
+            position: relative;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p {
+            color: #cbd5e0;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #cbd5e0;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        /* Notification Styles */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 10px;
+            z-index: 10000;
+            animation: slideIn 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .notification.success {
+            background: var(--success);
+            color: white;
+        }
+
+        .notification.error {
+            background: var(--danger);
+            color: white;
+        }
+
+        .notification.info {
+            background: var(--primary);
+            color: white;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+
+        /* Discount Badge */
+        .discount-badge {
+            display: inline-block;
+            background: var(--success);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-left: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .nav-links {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .cart-container {
+                gap: 30px;
+            }
+            
+            .cart-summary {
+                position: relative;
+                top: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .cart-item {
+                grid-template-columns: 100px 1fr;
+                grid-template-rows: auto auto;
+            }
+            
+            .item-actions {
+                grid-column: 1 / -1;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: 15px;
+            }
+            
+            .item-info h3 {
+                font-size: 1.1rem;
+            }
+            
+            .cart-items-header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+            
+            .header-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo {
+                font-size: 1.6rem;
+            }
+            
+            .user-actions {
+                gap: 15px;
+            }
+            
+            .icon-btn {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .cart-item {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .item-image {
+                width: 100%;
+                max-width: 200px;
+                height: 200px;
+                margin: 0 auto;
+            }
+            
+            .item-actions {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .quantity-control {
+                justify-content: center;
+            }
+            
+            .empty-state {
+                padding: 60px 20px;
+            }
+            
+            .empty-icon {
+                font-size: 3.5rem;
+            }
+            
+            .empty-state h2 {
+                font-size: 1.6rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>MobilTop.UZ</span>
+                </a>
+                
+                <nav class="nav-links">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-home"></i> Bosh sahifa
+                    </a>
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-th-large"></i> Mahsulotlar
+                    </a>
+                    <a href="sevimlilar.html" class="nav-link">
+                        <i class="fas fa-heart"></i> Sevimlilar
+                    </a>
+                    <a href="cart.html" class="nav-link active">
+                        <i class="fas fa-shopping-cart"></i> Savat
+                    </a>
+                    <a href="profile.html" class="nav-link">
+                        <i class="fas fa-user"></i> Profil
+                    </a>
+                </nav>
+                
+                <div class="user-actions">
+                    <button class="icon-btn" onclick="location.href='index.html'">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="icon-btn" onclick="location.href='sevimlilar.html'">
+                        <i class="fas fa-heart"></i>
+                        <span class="badge" id="wishlistCount">0</span>
+                    </button>
+                    <button class="icon-btn" onclick="location.href='cart.html'">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge" id="cartCount">0</span>
+                    </button>
+                    <button class="icon-btn" onclick="location.href='profile.html'">
+                        <i class="fas fa-user"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Cart Content -->
+    <div class="container">
+        <div class="page-header">
+            <h1><i class="fas fa-shopping-cart"></i> Savatingiz</h1>
+            <p>Mahsulotlarni tekshirib, buyurtmani yakunlang</p>
+        </div>
+
+        <div class="cart-container" id="cartContent">
+            <!-- Cart items and summary will be loaded here -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MobilTop.UZ</h3>
+                    <p>O'zbekistondagi eng keng mobil telefon assortimenti. 1000+ telefon modellari, 50+ brendlar.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Foydali Havolalar</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Bosh sahifa</a></li>
+                        <li><a href="index.html">Mahsulotlar</a></li>
+                        <li><a href="sevimlilar.html">Sevimlilar</a></li>
+                        <li><a href="cart.html">Savat</a></li>
+                        <li><a href="profile.html">Profil</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Yordam</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Qanday buyurtma berish</a></li>
+                        <li><a href="#">Yetkazib berish</a></li>
+                        <li><a href="#">Kafolat</a></li>
+                        <li><a href="#">Qaytarish siyosati</a></li>
+                        <li><a href="#">Ko'p so'raladigan savollar</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Aloqa</h3>
+                    <p><i class="fas fa-phone"></i> +998 93 240 12 54</p>
+                    <p><i class="fas fa-phone"></i> +998 93 273 49 09</p>
+                    <p><i class="fas fa-envelope"></i> info@mobiltop.uz</p>
+                    <p><i class="fas fa-clock"></i> 9:00 - 21:00 (har kuni)</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Toshkent sh., Ohangaron t, Quyun MFY</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2024 MobilTop.UZ - Barcha huquqlar himoyalangan</p>
+                <p style="margin-top: 10px; font-size: 12px;">MChJ "MobilTop" | STIR: 123456789 | Tel: +998 (93) 240-12-54</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================
+        // GLOBAL VARIABLES
+        // ============================================
+        let currentPromoCode = null;
+        let currentDiscount = 0;
+        let appliedPromo = JSON.parse(localStorage.getItem('appliedPromo') || 'null');
+
+        // ============================================
+        // COMPLETE PRODUCTS DATABASE (index.html bilan bir xil)
+        // ============================================
+        const productsDB = {
+            'samsung-s24-ultra': {
+                name: 'Samsung Galaxy S24 Ultra',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s24-ultra.jpg',
+                specs: '200MP • 12GB RAM • 512GB • Snapdragon 8 Gen 3',
+                price: 12499000,
+                oldPrice: 13999000,
+                stock: 15
+            },
+            'samsung-s23-ultra': {
+                name: 'Samsung Galaxy S23 Ultra',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s23-ultra.jpg',
+                specs: '200MP • 8GB RAM • 256GB • Snapdragon 8 Gen 2',
+                price: 10999000,
+                oldPrice: 12499000,
+                stock: 8
+            },
+            'samsung-s23-fe': {
+                name: 'Samsung Galaxy S23 FE',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s23-fe.jpg',
+                specs: '50MP • 8GB RAM • 256GB • Exynos 2200',
+                price: 7499000,
+                oldPrice: 8299000,
+                stock: 22
+            },
+            'samsung-z-fold5': {
+                name: 'Samsung Galaxy Z Fold5',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-fold5.jpg',
+                specs: '7.6" Qatlamli • 12GB • 512GB • Snapdragon 8 Gen 2',
+                price: 15999000,
+                oldPrice: 17999000,
+                stock: 5
+            },
+            'samsung-z-flip5': {
+                name: 'Samsung Galaxy Z Flip5',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-flip5.jpg',
+                specs: 'Katlanadigan • 8GB • 256GB • Snapdragon 8 Gen 2',
+                price: 10299000,
+                oldPrice: 11499000,
+                stock: 12
+            },
+            'samsung-a54': {
+                name: 'Samsung Galaxy A54',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a54-5g.jpg',
+                specs: '50MP • 8GB RAM • 256GB • Exynos 1380',
+                price: 4999000,
+                oldPrice: 5499000,
+                stock: 35
+            },
+            'samsung-a34': {
+                name: 'Samsung Galaxy A34',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a34.jpg',
+                specs: '48MP • 8GB RAM • 128GB • MediaTek Dimensity 1080',
+                price: 3799000,
+                oldPrice: 4199000,
+                stock: 42
+            },
+            'samsung-a15': {
+                name: 'Samsung Galaxy A15',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a15.jpg',
+                specs: '50MP • 6GB RAM • 128GB • MediaTek Helio G99',
+                price: 2499000,
+                oldPrice: 2899000,
+                stock: 58
+            },
+            'iphone-15-pro-max': {
+                name: 'iPhone 15 Pro Max',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-pro-max.jpg',
+                specs: '48MP • 8GB RAM • 1TB • A17 Pro',
+                price: 15999000,
+                oldPrice: 17499000,
+                stock: 9
+            },
+            'iphone-15-pro': {
+                name: 'iPhone 15 Pro',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15-pro.jpg',
+                specs: '48MP • 8GB RAM • 512GB • A17 Pro',
+                price: 13999000,
+                oldPrice: 15299000,
+                stock: 14
+            },
+            'iphone-15': {
+                name: 'iPhone 15',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-15.jpg',
+                specs: '48MP • 6GB RAM • 256GB • A16 Bionic',
+                price: 10499000,
+                oldPrice: 11499000,
+                stock: 21
+            },
+            'iphone-14-pro-max': {
+                name: 'iPhone 14 Pro Max',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14-pro-max.jpg',
+                specs: '48MP • 6GB RAM • 512GB • A16 Bionic',
+                price: 12999000,
+                oldPrice: 14499000,
+                stock: 7
+            },
+            'iphone-14': {
+                name: 'iPhone 14',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-14.jpg',
+                specs: '12MP • 6GB RAM • 128GB • A15 Bionic',
+                price: 8999000,
+                oldPrice: 9799000,
+                stock: 18
+            },
+            'iphone-13': {
+                name: 'iPhone 13',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13.jpg',
+                specs: '12MP • 4GB RAM • 256GB • A15 Bionic',
+                price: 7499000,
+                oldPrice: 8299000,
+                stock: 25
+            },
+            'iphone-se-2022': {
+                name: 'iPhone SE (2022)',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-se-2022.jpg',
+                specs: '12MP • 4GB RAM • 128GB • A15 Bionic',
+                price: 5999000,
+                oldPrice: 6499000,
+                stock: 32
+            },
+            'xiaomi-14-pro': {
+                name: 'Xiaomi 14 Pro',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/xiaomi-14-pro.jpg',
+                specs: '50MP • 12GB RAM • 512GB • Snapdragon 8 Gen 3',
+                price: 9999000,
+                oldPrice: 10999000,
+                stock: 11
+            },
+            'xiaomi-13-ultra': {
+                name: 'Xiaomi 13 Ultra',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/xiaomi-13-ultra.jpg',
+                specs: '50MP • 12GB RAM • 512GB • Snapdragon 8 Gen 2',
+                price: 8999000,
+                oldPrice: 9799000,
+                stock: 6
+            },
+            'xiaomi-13t-pro': {
+                name: 'Xiaomi 13T Pro',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/xiaomi-13t-pro.jpg',
+                specs: '50MP • 12GB RAM • 512GB • MediaTek Dimensity 9200+',
+                price: 7499000,
+                oldPrice: 8199000,
+                stock: 19
+            },
+            'xiaomi-redmi-note-13-pro': {
+                name: 'Xiaomi Redmi Note 13 Pro',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-13-pro.jpg',
+                specs: '200MP • 8GB RAM • 256GB • Snapdragon 7s Gen 2',
+                price: 4299000,
+                oldPrice: 4799000,
+                stock: 28
+            },
+            'xiaomi-poco-x6-pro': {
+                name: 'Xiaomi Poco X6 Pro',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-x6-pro.jpg',
+                specs: '64MP • 12GB RAM • 512GB • MediaTek Dimensity 8300 Ultra',
+                price: 5499000,
+                oldPrice: 5999000,
+                stock: 16
+            },
+            'xiaomi-redmi-12': {
+                name: 'Xiaomi Redmi 12',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-12.jpg',
+                specs: '50MP • 8GB RAM • 256GB • MediaTek Helio G88',
+                price: 2499000,
+                oldPrice: 2899000,
+                stock: 45
+            },
+            'realme-gt5-pro': {
+                name: 'Realme GT5 Pro',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/realme-gt5-pro.jpg',
+                specs: '50MP • 12GB RAM • 1TB • Snapdragon 8 Gen 3',
+                price: 8499000,
+                oldPrice: 9299000,
+                stock: 8
+            },
+            'realme-gt-neo5': {
+                name: 'Realme GT Neo5',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/realme-gt-neo5.jpg',
+                specs: '50MP • 16GB RAM • 1TB • Snapdragon 8+ Gen 1',
+                price: 7999000,
+                oldPrice: 8499000,
+                stock: 12
+            },
+            'realme-11-pro-plus': {
+                name: 'Realme 11 Pro+',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/realme-11-pro-plus.jpg',
+                specs: '200MP • 12GB RAM • 512GB • MediaTek Dimensity 7050',
+                price: 5999000,
+                oldPrice: 6499000,
+                stock: 21
+            },
+            'realme-c55': {
+                name: 'Realme C55',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/realme-c55.jpg',
+                specs: '64MP • 8GB RAM • 256GB • MediaTek Helio G88',
+                price: 2799000,
+                oldPrice: 3199000,
+                stock: 37
+            },
+            'vivo-x100-pro': {
+                name: 'Vivo X100 Pro',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/vivo-x100-pro.jpg',
+                specs: '50MP • 16GB RAM • 1TB • MediaTek Dimensity 9300',
+                price: 10499000,
+                oldPrice: 11499000,
+                stock: 7
+            },
+            'vivo-v29': {
+                name: 'Vivo V29',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/vivo-v29.jpg',
+                specs: '50MP • 12GB RAM • 256GB • Snapdragon 778G',
+                price: 5499000,
+                oldPrice: 5999000,
+                stock: 18
+            },
+            'vivo-y100': {
+                name: 'Vivo Y100',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/vivo-y100.jpg',
+                specs: '50MP • 8GB RAM • 128GB • Snapdragon 695',
+                price: 2999000,
+                oldPrice: 3299000,
+                stock: 29
+            },
+            'oppo-find-x7-ultra': {
+                name: 'Oppo Find X7 Ultra',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/oppo-find-x7-ultra.jpg',
+                specs: '50MP • 16GB RAM • 512GB • Snapdragon 8 Gen 3',
+                price: 11999000,
+                oldPrice: 12999000,
+                stock: 5
+            },
+            'oppo-reno11-pro': {
+                name: 'Oppo Reno11 Pro',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/oppo-reno11-pro.jpg',
+                specs: '50MP • 12GB RAM • 512GB • MediaTek Dimensity 8200',
+                price: 6999000,
+                oldPrice: 7499000,
+                stock: 15
+            },
+            'oppo-a78': {
+                name: 'Oppo A78',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/oppo-a78.jpg',
+                specs: '50MP • 8GB RAM • 128GB • Snapdragon 680',
+                price: 2799000,
+                oldPrice: 3099000,
+                stock: 34
+            },
+            'honor-magic6-pro': {
+                name: 'Honor Magic6 Pro',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/honor-magic6-pro.jpg',
+                specs: '50MP • 16GB RAM • 1TB • Snapdragon 8 Gen 3',
+                price: 11499000,
+                oldPrice: 12499000,
+                stock: 6
+            },
+            'honor-90': {
+                name: 'Honor 90',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/honor-90.jpg',
+                specs: '200MP • 12GB RAM • 512GB • Snapdragon 7 Gen 1',
+                price: 5999000,
+                oldPrice: 6499000,
+                stock: 19
+            },
+            'honor-x9b': {
+                name: 'Honor X9b',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/honor-x9b.jpg',
+                specs: '108MP • 8GB RAM • 256GB • Snapdragon 6 Gen 1',
+                price: 3999000,
+                oldPrice: 4299000,
+                stock: 27
+            },
+            'oneplus-12': {
+                name: 'OnePlus 12',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/oneplus-12.jpg',
+                specs: '50MP • 16GB RAM • 512GB • Snapdragon 8 Gen 3',
+                price: 9999000,
+                oldPrice: 10999000,
+                stock: 9
+            },
+            'oneplus-11': {
+                name: 'OnePlus 11',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/oneplus-11.jpg',
+                specs: '50MP • 16GB RAM • 256GB • Snapdragon 8 Gen 2',
+                price: 8499000,
+                oldPrice: 9199000,
+                stock: 14
+            },
+            'oneplus-nord-3': {
+                name: 'OnePlus Nord 3',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/oneplus-nord-3.jpg',
+                specs: '50MP • 16GB RAM • 256GB • MediaTek Dimensity 9000',
+                price: 5499000,
+                oldPrice: 5999000,
+                stock: 22
+            },
+            'airpods-pro-2': {
+                name: 'AirPods Pro 2',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/apple-airpods-pro-2.jpg',
+                specs: 'Active Noise Cancellation • MagSafe • Spatial Audio',
+                price: 2499000,
+                oldPrice: 2899000,
+                stock: 42
+            },
+            'samsung-galaxy-buds2-pro': {
+                name: 'Samsung Galaxy Buds2 Pro',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-buds2-pro.jpg',
+                specs: 'ANC • Hi-Fi Sound • Bixby Voice Wake Up',
+                price: 1899000,
+                oldPrice: 2199000,
+                stock: 38
+            },
+            'xiaomi-watch-s3': {
+                name: 'Xiaomi Watch S3',
+                image: 'https://fdn2.gsmarena.com/vv/bigpic/xiaomi-watch-s3.jpg',
+                specs: '1.43" AMOLED • GPS • 15 kun batareya',
+                price: 1299000,
+                oldPrice: 1499000,
+                stock: 25
+            },
+            'samsung-45w-charger': {
+                name: 'Samsung 45W Tez Zaryadlovchi',
+                image: 'https://images.samsung.com/is/image/samsung/p6pim/uz/ep-ta845xbegru/gallery/uz-galaxy-45w-travel-adapter-ep-ta845xbegru-533879857',
+                specs: 'Super Fast Charging 2.0 • PD 3.0 • PPS',
+                price: 599000,
+                oldPrice: 699000,
+                stock: 56
+            },
+            'iphone-magsafe-charger': {
+                name: 'Apple MagSafe Zaryadlovchi',
+                image: 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MHXH3',
+                specs: '15W Wireless Charging • Magnetic Alignment',
+                price: 799000,
+                oldPrice: 899000,
+                stock: 31
+            },
+            'spigen-case-s24': {
+                name: 'Spigen S24 Ultra Qop',
+                image: 'https://m.media-amazon.com/images/I/71x-0Akb7FL._AC_SL1500_.jpg',
+                specs: 'Armor qurilma • 4 ta qalin burchaklar • Transparent',
+                price: 299000,
+                oldPrice: 349000,
+                stock: 78
+            },
+            'anker-powerbank': {
+                name: 'Anker PowerCore 20,000mAh',
+                image: 'https://m.media-amazon.com/images/I/61pJ7L-0aQL._AC_SL1500_.jpg',
+                specs: '20,000mAh • 20W Tez Zaryadlash • 2 USB port',
+                price: 699000,
+                oldPrice: 799000,
+                stock: 45
+            },
+            'car-mount-wireless': {
+                name: 'Avtomobil Wireless Zaryadlovchi',
+                image: 'https://m.media-amazon.com/images/I/71j+UwMpMJL._AC_SL1500_.jpg',
+                specs: '15W Wireless • Avtomatik qisqich • 360° aylanish',
+                price: 449000,
+                oldPrice: 499000,
+                stock: 33
+            }
+        };
+
+        // ============================================
+        // HELPER FUNCTIONS
+        // ============================================
+        function formatPrice(price) {
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " so'm";
+        }
+
+        function showNotification(message, type = 'success') {
+            // Remove existing notifications
+            document.querySelectorAll('.notification').forEach(n => n.remove());
+            
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'error' ? 'exclamation-triangle' : type === 'info' ? 'info-circle' : 'check-circle'}"></i>
+                <span>${message}</span>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        function updateCounts() {
+            try {
+                const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+                const wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+                
+                const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+                const wishlistCount = wishlist.length;
+                
+                document.getElementById('cartCount').textContent = cartCount;
+                document.getElementById('wishlistCount').textContent = wishlistCount;
+            } catch (error) {
+                console.error('Error updating counts:', error);
+            }
+        }
+
+        // ============================================
+        // CART LOADING FUNCTIONS
+        // ============================================
+        function loadCart() {
+            try {
+                const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+                const container = document.getElementById('cartContent');
+                
+                console.log('Loading cart:', cart); // Debug uchun
+                
+                updateCounts();
+                
+                if (cart.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <h2>Savatingiz bo'sh</h2>
+                            <p>Mahsulotlarni savatga qo'shish uchun "Savatga" tugmasini bosing</p>
+                            <a href="index.html" class="btn-large">
+                                <i class="fas fa-shopping-bag"></i> Mahsulotlarga o'tish
+                            </a>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                // Calculate totals
+                let subtotal = 0;
+                let validItems = [];
+                
+                // Cart items HTML
+                const cartItemsHTML = cart.map(item => {
+                    const product = productsDB[item.id];
+                    if (!product) {
+                        console.warn('Mahsulot topilmadi:', item.id);
+                        return '';
+                    }
+                    
+                    validItems.push(item);
+                    const itemTotal = product.price * item.quantity;
+                    subtotal += itemTotal;
+                    
+                    return `
+                        <div class="cart-item" data-id="${item.id}">
+                            <img src="${product.image}" 
+                                 alt="${product.name}" 
+                                 class="item-image"
+                                 onerror="this.src='https://via.placeholder.com/120x120?text=Mahsulot'">
+                            
+                            <div class="item-info">
+                                <h3>${product.name}</h3>
+                                <div class="item-specs">${product.specs}</div>
+                                <div class="item-price">${formatPrice(product.price)}</div>
+                                ${product.oldPrice ? 
+                                    `<span class="old-price">${formatPrice(product.oldPrice)}</span>` 
+                                    : ''
+                                }
+                            </div>
+                            
+                            <div class="item-actions">
+                                <div class="quantity-control">
+                                    <button class="qty-btn" onclick="updateQuantity('${item.id}', -1)">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <span class="quantity">${item.quantity}</span>
+                                    <button class="qty-btn" onclick="updateQuantity('${item.id}', 1)">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                                <div class="item-total">
+                                    <div class="label">Jami:</div>
+                                    <div class="amount">${formatPrice(itemTotal)}</div>
+                                </div>
+                                <button class="remove-item" onclick="removeFromCart('${item.id}')">
+                                    <i class="fas fa-trash"></i> O'chirish
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+                
+                // Remove invalid items from cart
+                if (validItems.length !== cart.length) {
+                    localStorage.setItem('cart', JSON.stringify(validItems));
+                    showNotification('Ba\'zi mahsulotlar topilmadi', 'info');
+                }
+                
+                if (validItems.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <div class="empty-icon">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <h2>Savatingiz bo'sh</h2>
+                            <p>Mahsulotlarni savatga qo'shish uchun "Savatga" tugmasini bosing</p>
+                            <a href="index.html" class="btn-large">
+                                <i class="fas fa-shopping-bag"></i> Mahsulotlarga o'tish
+                            </a>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                // Calculate tax and totals
+                const delivery = 25000; // 25,000 so'm delivery
+                const taxRate = 0.001; // 0.1% soliq
+                const tax = Math.round(subtotal * taxRate);
+                
+                // Apply discount if exists
+                let discountHTML = '';
+                let discountAmount = 0;
+                let finalTotal = subtotal + delivery + tax;
+                
+                if (currentDiscount > 0 && appliedPromo) {
+                    discountAmount = Math.round(subtotal * currentDiscount);
+                    finalTotal = subtotal + delivery + tax - discountAmount;
+                    
+                    discountHTML = `
+                        <div class="summary-row discount">
+                            <span>Chegirma (${(currentDiscount * 100)}%):</span>
+                            <span>-${formatPrice(discountAmount)}</span>
+                        </div>
+                    `;
+                }
+                
+                container.innerHTML = `
+                    <div class="cart-items">
+                        <div class="cart-items-header">
+                            <h2><i class="fas fa-box"></i> Mahsulotlar (${validItems.length})</h2>
+                            <div class="header-actions">
+                                <button class="remove-item" onclick="continueShopping()">
+                                    <i class="fas fa-arrow-left"></i> Xaridni davom ettirish
+                                </button>
+                                <button class="remove-item" onclick="clearCart()" style="color: var(--danger);">
+                                    <i class="fas fa-trash-alt"></i> Savatni tozalash
+                                </button>
+                            </div>
+                        </div>
+                        ${cartItemsHTML}
+                    </div>
+                    
+                    <div class="cart-summary">
+                        <h3 class="summary-title"><i class="fas fa-receipt"></i> Buyurtma xulosasi</h3>
+                        
+                        <div class="summary-row">
+                            <span>Mahsulotlar narxi:</span>
+                            <span>${formatPrice(subtotal)}</span>
+                        </div>
+                        
+                        ${discountHTML}
+                        
+                        <div class="summary-row">
+                            <span>Yetkazib berish:</span>
+                            <span>${formatPrice(delivery)}</span>
+                        </div>
+                        
+                        <div class="summary-row">
+                            <span>Soliq (0.1%):</span>
+                            <span>${formatPrice(tax)}</span>
+                        </div>
+                        
+                        <div class="promo-section">
+                            <h4><i class="fas fa-tag"></i> Promo kod yoki sertifikat</h4>
+                            <div class="promo-input">
+                                <input type="text" id="promoCode" placeholder="Promo kodni kiriting" 
+                                       value="${currentPromoCode || ''}">
+                                ${currentDiscount > 0 ? 
+                                    `<button onclick="removePromo()" style="background: var(--danger);">O'chirish</button>` : 
+                                    `<button onclick="applyPromo()">Qo'llash</button>`
+                                }
+                            </div>
+                            <div id="promoMessage"></div>
+                            ${currentDiscount > 0 ? `
+                                <div style="margin-top: 15px; padding: 10px; background: rgba(0, 184, 148, 0.1); border-radius: 10px; text-align: center;">
+                                    <i class="fas fa-gift" style="color: var(--success); margin-right: 8px;"></i>
+                                    <span style="color: var(--success); font-weight: 600;">
+                                        ${formatPrice(discountAmount)} tejadingiz!
+                                    </span>
+                                </div>
+                            ` : ''}
+                        </div>
+                        
+                        <div class="summary-row total">
+                            <span>Jami to'lov:</span>
+                            <span id="totalPrice" style="color: var(--success);">${formatPrice(finalTotal)}</span>
+                        </div>
+                        
+                        ${currentDiscount > 0 ? `
+                            <div class="discount-badge" style="width: 100%; text-align: center; margin-bottom: 15px;">
+                                <i class="fas fa-star"></i> Chegirma aktiv!
+                            </div>
+                        ` : ''}
+                        
+                        <button class="checkout-btn" onclick="checkout()">
+                            <i class="fas fa-lock"></i> Xavfsiz to'lovga o'tish
+                        </button>
+                        
+                        <button class="continue-btn" onclick="continueShopping()">
+                            <i class="fas fa-arrow-left"></i> Xaridni davom ettirish
+                        </button>
+                        
+                        <div class="security-badge">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>256-bit SSL shifrlash • Pul qaytarish kafolati</span>
+                        </div>
+                    </div>
+                `;
+            } catch (error) {
+                console.error('Error loading cart:', error);
+                showNotification('Savatni yuklashda xatolik yuz berdi', 'error');
+            }
+        }
+
+        // ============================================
+        // CART OPERATIONS
+        // ============================================
+        function updateQuantity(productId, change) {
+            try {
+                let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+                const itemIndex = cart.findIndex(item => item.id === productId);
+                
+                if (itemIndex !== -1) {
+                    cart[itemIndex].quantity += change;
+                    
+                    if (cart[itemIndex].quantity <= 0) {
+                        cart.splice(itemIndex, 1);
+                        showNotification('Mahsulot savatdan olib tashlandi', 'success');
+                    } else {
+                        showNotification('Miqdor yangilandi', 'success');
+                    }
+                    
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    loadCart();
+                    updateCounts();
+                } else {
+                    showNotification('Mahsulot topilmadi', 'error');
+                }
+            } catch (error) {
+                console.error('Error updating quantity:', error);
+                showNotification('Xatolik yuz berdi', 'error');
+            }
+        }
+
+        function removeFromCart(productId) {
+            if (confirm('Bu mahsulotni savatdan olib tashlashni xohlaysizmi?')) {
+                try {
+                    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+                    cart = cart.filter(item => item.id !== productId);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    loadCart();
+                    updateCounts();
+                    showNotification('Mahsulot savatdan olib tashlandi', 'success');
+                } catch (error) {
+                    console.error('Error removing from cart:', error);
+                    showNotification('Xatolik yuz berdi', 'error');
+                }
+            }
+        }
+
+        function clearCart() {
+            if (confirm('Savatni to\'liq tozalashni xohlaysizmi? Bu amalni bekor qilib bo\'lmaydi.')) {
+                try {
+                    localStorage.removeItem('cart');
+                    localStorage.removeItem('appliedPromo');
+                    currentPromoCode = null;
+                    currentDiscount = 0;
+                    appliedPromo = null;
+                    loadCart();
+                    updateCounts();
+                    showNotification('Savat tozalandi', 'success');
+                } catch (error) {
+                    console.error('Error clearing cart:', error);
+                    showNotification('Xatolik yuz berdi', 'error');
+                }
+            }
+        }
+
+        // ============================================
+        // PROMO CODE FUNCTIONS
+        // ============================================
+        function applyPromo() {
+            const promoCode = document.getElementById('promoCode').value.trim().toUpperCase();
+            const validCodes = {
+                'MOBILTOP10': 0.10,  // 10% chegirma
+                'MOBILTOP20': 0.20,  // 20% chegirma
+                'MOBILTOP50': 0.50,  // 50% chegirma
+                'YANGIFOYDA': 0.15,  // 15% chegirma
+                'ASLBEK': 0.25,      // 25% chegirma
+                'OMINA': 0.20,       // 20% chegirma
+                'TEKIN100': 0.50     // 50% chegirma
+            };
+            
+            const messageElement = document.getElementById('promoMessage');
+            
+            if (!promoCode) {
+                messageElement.innerHTML = '<i class="fas fa-exclamation-circle"></i> Iltimos, promo kod kiriting';
+                messageElement.className = 'promo-error';
+                messageElement.style.display = 'block';
+                return;
+            }
+            
+            if (!validCodes[promoCode]) {
+                messageElement.innerHTML = '<i class="fas fa-exclamation-circle"></i> Noto\'g\'ri promo kod';
+                messageElement.className = 'promo-error';
+                messageElement.style.display = 'block';
+                document.getElementById('promoCode').value = '';
+                showNotification('Noto\'g\'ri promo kod', 'error');
+                return;
+            }
+            
+            // Apply promo code
+            currentPromoCode = promoCode;
+            currentDiscount = validCodes[promoCode];
+            
+            // Save to localStorage
+            appliedPromo = {
+                code: promoCode,
+                discount: currentDiscount,
+                appliedAt: new Date().toISOString()
+            };
+            localStorage.setItem('appliedPromo', JSON.stringify(appliedPromo));
+            
+            // Reload cart to update totals
+            loadCart();
+            
+            // Calculate discount amount for message
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const subtotal = cart.reduce((sum, item) => {
+                const product = productsDB[item.id];
+                return sum + (product?.price || 0) * item.quantity;
+            }, 0);
+            
+            const discountAmount = Math.round(subtotal * currentDiscount);
+            
+            // Show success message
+            messageElement.innerHTML = `
+                <i class="fas fa-check-circle"></i> ${currentDiscount * 100}% chegirma qo'llandi! 
+                <strong>${formatPrice(discountAmount)}</strong> tejadingiz
+                <button onclick="copyPromoCode()" style="margin-left: 10px; background: none; border: none; color: var(--primary); cursor: pointer;" title="Promo kodni nusxalash">
+                    <i class="fas fa-copy"></i>
+                </button>
+            `;
+            messageElement.className = 'promo-success';
+            messageElement.style.display = 'block';
+            
+            showNotification(`${currentDiscount * 100}% chegirma qo'llandi! ${formatPrice(discountAmount)} tejadingiz`, 'success');
+        }
+
+        function removePromo() {
+            if (confirm('Chegirmani olib tashlashni xohlaysizmi?')) {
+                currentPromoCode = null;
+                currentDiscount = 0;
+                appliedPromo = null;
+                localStorage.removeItem('appliedPromo');
+                
+                const messageElement = document.getElementById('promoMessage');
+                messageElement.innerHTML = '<i class="fas fa-check-circle"></i> Chegirma olib tashlandi';
+                messageElement.className = 'promo-success';
+                messageElement.style.display = 'block';
+                
+                document.getElementById('promoCode').value = '';
+                loadCart();
+                showNotification('Chegirma olib tashlandi', 'success');
+                
+                setTimeout(() => {
+                    messageElement.style.display = 'none';
+                }, 3000);
+            }
+        }
+
+        function copyPromoCode() {
+            if (currentPromoCode) {
+                navigator.clipboard.writeText(currentPromoCode).then(() => {
+                    showNotification('Promo kod nusxalandi!', 'success');
+                }).catch(err => {
+                    console.error('Copy failed:', err);
+                    showNotification('Nusxalash muvaffaqiyatsiz', 'error');
+                });
+            }
+        }
+
+        function loadSavedPromo() {
+            try {
+                const savedPromo = JSON.parse(localStorage.getItem('appliedPromo'));
+                if (savedPromo && savedPromo.code && savedPromo.discount) {
+                    currentPromoCode = savedPromo.code;
+                    currentDiscount = savedPromo.discount;
+                    appliedPromo = savedPromo;
+                    
+                    // Check if promo is still valid (within 24 hours)
+                    const appliedTime = new Date(savedPromo.appliedAt);
+                    const currentTime = new Date();
+                    const hoursDiff = (currentTime - appliedTime) / (1000 * 60 * 60);
+                    
+                    if (hoursDiff > 24) {
+                        // Promo expired
+                        currentPromoCode = null;
+                        currentDiscount = 0;
+                        appliedPromo = null;
+                        localStorage.removeItem('appliedPromo');
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading saved promo:', error);
+                currentPromoCode = null;
+                currentDiscount = 0;
+                appliedPromo = null;
+            }
+        }
+
+        // ============================================
+        // CHECKOUT FUNCTIONS
+        // ============================================
+        function checkout() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            if (cart.length === 0) {
+                showNotification('Savat bo\'sh! Avval mahsulot qo\'shing', 'error');
+                return;
+            }
+            
+            // Calculate totals
+            const subtotal = cart.reduce((sum, item) => {
+                const product = productsDB[item.id];
+                return sum + (product?.price || 0) * item.quantity;
+            }, 0);
+            
+            const delivery = 25000;
+            const tax = Math.round(subtotal * 0.001);
+            const discountAmount = Math.round(subtotal * currentDiscount);
+            const total = subtotal + delivery + tax - discountAmount;
+            
+            // Save detailed order summary
+            const orderSummary = {
+                cart: cart,
+                subtotal: subtotal,
+                delivery: delivery,
+                tax: tax,
+                discount: {
+                    code: currentPromoCode,
+                    percentage: currentDiscount * 100,
+                    amount: discountAmount
+                },
+                total: total,
+                timestamp: new Date().toISOString(),
+                orderId: 'MT-' + Date.now().toString().slice(-8)
+            };
+            
+            localStorage.setItem('pendingOrder', JSON.stringify(orderSummary));
+            
+            // Show order confirmation modal
+            showOrderModal(orderSummary);
+        }
+
+        function showOrderModal(orderSummary) {
+            const modalHTML = `
+                <div id="orderModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 10001; display: flex; align-items: center; justify-content: center; padding: 20px;">
+                    <div style="background: white; border-radius: 20px; padding: 40px; max-width: 500px; width: 100%; max-height: 90vh; overflow-y: auto;">
+                        <div style="text-align: center; margin-bottom: 30px;">
+                            <div style="width: 80px; height: 80px; background: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                                <i class="fas fa-shopping-bag" style="color: white; font-size: 2rem;"></i>
+                            </div>
+                            <h2 style="color: var(--dark); margin-bottom: 10px;">Buyurtmani yakunlash</h2>
+                            <p style="color: #666;">Buyurtma ma'lumotlarini tekshiring</p>
+                        </div>
+                        
+                        <div style="margin: 30px 0;">
+                            <div style="background: var(--light); padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+                                <h4 style="margin-bottom: 15px; color: var(--dark);">
+                                    <i class="fas fa-list"></i> Buyurtma tarkibi
+                                </h4>
+                                ${orderSummary.cart.map(item => {
+                                    const product = productsDB[item.id];
+                                    if (!product) return '';
+                                    return `<div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                        <span>${product.name} (x${item.quantity})</span>
+                                        <span>${formatPrice(product.price * item.quantity)}</span>
+                                    </div>`;
+                                }).join('')}
+                            </div>
+                            
+                            <div style="border-top: 2px solid var(--light); padding-top: 20px;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                    <span>Mahsulotlar:</span>
+                                    <span>${formatPrice(orderSummary.subtotal)}</span>
+                                </div>
+                                
+                                ${orderSummary.discount.amount > 0 ? `
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; color: var(--success);">
+                                        <span>Chegirma (${orderSummary.discount.percentage}%):</span>
+                                        <span>-${formatPrice(orderSummary.discount.amount)}</span>
+                                    </div>
+                                ` : ''}
+                                
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                    <span>Yetkazib berish:</span>
+                                    <span>${formatPrice(orderSummary.delivery)}</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                                    <span>Soliq (0.1%):</span>
+                                    <span>${formatPrice(orderSummary.tax)}</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; margin-top: 20px; padding-top: 20px; border-top: 2px solid var(--light); font-size: 1.2rem; font-weight: bold;">
+                                    <span>Jami:</span>
+                                    <span style="color: var(--success);">${formatPrice(orderSummary.total)}</span>
+                                </div>
+                                
+                                ${orderSummary.discount.amount > 0 ? `
+                                    <div style="margin-top: 15px; padding: 15px; background: rgba(0, 184, 148, 0.1); border-radius: 10px; text-align: center;">
+                                        <i class="fas fa-gift" style="color: var(--success); margin-right: 8px;"></i>
+                                        <span style="color: var(--success); font-weight: 600;">
+                                            ${formatPrice(orderSummary.discount.amount)} tejadingiz!
+                                        </span>
+                                    </div>
+                                ` : ''}
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; gap: 10px; margin-top: 30px;">
+                            <button onclick="closeOrderModal()" style="flex: 1; padding: 15px; background: var(--light); color: var(--dark); border: none; border-radius: 15px; cursor: pointer; font-weight: 600;">
+                                <i class="fas fa-times"></i> Bekor qilish
+                            </button>
+                            <button onclick="confirmOrder()" style="flex: 2; padding: 15px; background: linear-gradient(135deg, var(--success), #00cec9); color: white; border: none; border-radius: 15px; cursor: pointer; font-weight: bold; font-size: 1.1rem;">
+                                <i class="fas fa-check"></i> Tasdiqlash va to'lash
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+        }
+
+        function closeOrderModal() {
+            const modal = document.getElementById('orderModal');
+            if (modal) modal.remove();
+        }
+
+        function confirmOrder() {
+            closeOrderModal();
+            
+            showNotification('Buyurtma qabul qilindi! To\'lov sahifasiga yo\'naltirilmoqdasiz...', 'success');
+            
+            setTimeout(() => {
+                const orderSummary = JSON.parse(localStorage.getItem('pendingOrder'));
+                alert(`DEMO REJIM: To'lov sahifasiga yo'naltiriladi.\n\n📦 Buyurtma raqami: ${orderSummary.orderId}\n💰 Jami to'lov: ${formatPrice(orderSummary.total)}\n⏰ Vaqt: ${new Date().toLocaleString('uz-UZ')}\n\nRahmat!`);
+                
+                // Clear cart after successful order (in demo mode)
+                localStorage.removeItem('cart');
+                localStorage.removeItem('appliedPromo');
+                localStorage.removeItem('pendingOrder');
+                
+                // Reload cart page
+                setTimeout(() => {
+                    loadCart();
+                }, 1000);
+                
+            }, 2000);
+        }
+
+        function continueShopping() {
+            location.href = 'index.html';
+        }
+
+        // ============================================
+        // INITIALIZATION
+        // ============================================
+        function initCart() {
+            loadSavedPromo();
+            loadCart();
+            
+            // Real-time cart update
+            window.addEventListener('storage', function(e) {
+                if (e.key === 'cart' || e.key === 'appliedPromo') {
+                    loadSavedPromo();
+                    loadCart();
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', initCart);
+    </script>
+</body>
+</html>
